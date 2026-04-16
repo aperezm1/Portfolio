@@ -1,4 +1,4 @@
-# Portfolio — Windows XP Style Portfolio
+# Portfolio — Windows XP Style
 
 Descripción
 -----------
