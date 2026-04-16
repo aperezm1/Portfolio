@@ -20,11 +20,19 @@ html {
 html,
 body {
   height: 100%;
+  background: #2c5ea8;
 }
 
 body {
   margin: 0;
   font-family: var(--font-ui);
+}
+
+app-root {
+  display: block;
+  width: 100%;
+  min-height: 100dvh;
+  background: #2c5ea8;
 }
 
 h1,

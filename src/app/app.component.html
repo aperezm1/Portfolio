@@ -1,1 +1,5 @@
-<router-outlet />
+<div class="app-root-shell">
+  <div class="app-route-host" [@routeFade]="currentRoute">
+    <router-outlet #outlet="outlet" (activate)="onRouteActivate(outlet)"></router-outlet>
+  </div>
+</div>
