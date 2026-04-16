@@ -1,0 +1,38 @@
+{
+  "app": {
+    "name": "Adrian XP"
+  },
+  "common": {
+    "logoAlt": "Logo du portfolio",
+    "actions": {
+      "clickToStart": "cliquez pour demarrer",
+      "start": "Demarrer"
+    },
+    "status": {
+      "loading": "Chargement..."
+    },
+    "validation": {
+      "required": "Ce champ est obligatoire",
+      "minName": "Entrez au moins 2 caracteres"
+    }
+  },
+  "pages": {
+    "login": {
+      "logoAlt": "Logo de connexion",
+      "leftHint": "Pour commencer, saisissez votre nom",
+      "title": "Ouverture de session",
+      "subtitle": "Entrez votre nom pour acceder au bureau",
+      "form": {
+        "nameLabel": "Invit",
+        "namePlaceholder": "Votre nom",
+        "submit": "Entrer"
+      },
+      "welcomeMessage": "Bienvenue, {{name}}",
+      "footerLeft": "Eteindre l ordinateur",
+      "footerRight": "Apres connexion vous pourrez acceder au bureau"
+    },
+    "desktop": {
+      "personalWelcome": "Connecte en tant que {{name}}"
+    }
+  }
+}

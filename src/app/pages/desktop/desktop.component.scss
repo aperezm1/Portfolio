@@ -1,0 +1,36 @@
+:host { display:block; height:100dvh; width:100%; }
+
+.desktop-screen {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-image: url('/assets/images/background_xp.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+/* centered icon cluster (near center of screen) */
+.desktop-icons {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  gap: 2.5rem;
+  align-items: center;
+  justify-content: center;
+  pointer-events: auto;
+}
+
+/* small responsive tweak: stack icons on narrow screens */
+@media (max-width: 720px) {
+  .desktop-icons {
+    flex-direction: column;
+    gap: 1.25rem;
+    transform: translate(-50%, -40%); /* lift a bit for taskbar space */
+  }
+}
+
+/* ensure taskbar doesn't overlap important icons visually (taskbar already styles inside its component) */

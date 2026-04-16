@@ -1,0 +1,37 @@
+<nav class="xp-taskbar" role="navigation" [attr.aria-label]="'XP taskbar'">
+  <button
+    class="xp-start"
+    mat-button
+    type="button"
+    (click)="onStart()"
+    [attr.aria-label]="'common.actions.start' | translate"
+  >
+    <img class="xp-start__logo" src="/assets/images/logo_xp.png" alt="Start logo" />
+    <span class="xp-start__text">{{ 'common.actions.start' | translate }}</span>
+    <span class="xp-start__right-cap" aria-hidden="true"></span>
+  </button>
+
+  <div class="xp-main" aria-hidden="false">
+    <div class="xp-main__fill"></div>
+
+    <button
+      class="xp-lang"
+      mat-button
+      type="button"
+      [matMenuTriggerFor]="langMenu"
+      [attr.aria-label]="'common.actions.language' | translate"
+    >
+      {{ currentLang }}
+    </button>
+  </div>
+
+  <div class="xp-tray" role="status" [attr.aria-label]="'common.status.time' | translate">
+    <span class="xp-clock">{{ time }}</span>
+  </div>
+</nav>
+
+<mat-menu #langMenu="matMenu" xPosition="before" yPosition="above" class="xp-lang-menu-panel">
+  <button mat-menu-item type="button" (click)="setLang('es')">Español</button>
+  <button mat-menu-item type="button" (click)="setLang('en')">English</button>
+  <button mat-menu-item type="button" (click)="setLang('fr')">Français</button>
+</mat-menu>

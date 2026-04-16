@@ -1,0 +1,17 @@
+<section class="desktop-screen" role="main" aria-label="Desktop">
+  <div class="desktop-icons" aria-hidden="false">
+    <app-desktop-icon
+      label="{{ 'pages.desktop.app1' | translate }}"
+      iconSrc="/assets/images/logo_xp.png"
+      (select)="openApp('app1')">
+    </app-desktop-icon>
+
+    <app-desktop-icon
+      label="{{ 'pages.desktop.app2' | translate }}"
+      iconSrc="/assets/images/avatar_xp.jpg"
+      (select)="openApp('app2')">
+    </app-desktop-icon>
+  </div>
+
+  <app-xp-taskbar (start)="onStart()"></app-xp-taskbar>
+</section>

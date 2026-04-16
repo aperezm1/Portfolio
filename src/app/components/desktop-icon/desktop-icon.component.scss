@@ -1,0 +1,34 @@
+.desktop-icon {
+  background: transparent;
+  border: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  color: #ffffff;
+  text-shadow: 0 1px 0 rgba(0,0,0,0.6);
+  padding: 0;
+}
+
+.desktop-icon__img {
+  display: none;
+  width: 64px;
+  height: 64px;
+  border-radius: 6px;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.35);
+  object-fit: cover;
+}
+
+.desktop-icon.has-icon .desktop-icon__img {
+  display: block;
+}
+
+.desktop-icon__label {
+  font-size: 0.95rem;
+  max-width: 84px;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

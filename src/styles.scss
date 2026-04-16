@@ -1,1 +1,35 @@
-/* You can add global styles to this file, and also import other style files */
+@use "@angular/material" as mat;
+
+:root {
+  --font-ui: Tahoma, "Trebuchet MS", Verdana, sans-serif;
+  --font-title: "Trebuchet MS", Tahoma, Verdana, sans-serif;
+}
+
+html {
+  @include mat.theme((
+    color: (
+      theme-type: light,
+      primary: mat.$azure-palette,
+      tertiary: mat.$blue-palette,
+    ),
+    typography: Tahoma,
+    density: 0,
+  ));
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-ui);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-title);
+}

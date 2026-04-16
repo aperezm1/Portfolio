@@ -1,0 +1,37 @@
+{
+  "app": {
+    "name": "Adrian XP"
+  },
+  "common": {
+    "logoAlt": "Portfolio logo",
+    "actions": {
+      "clickToStart": "click to start",
+      "start": "Start"
+    },
+    "status": {
+      "loading": "Loading..."
+    },
+    "validation": {
+      "required": "This field is required",
+      "minName": "Enter at least 2 characters"
+    }
+  },
+  "pages": {
+    "login": {
+      "leftHint": "To begin, enter your name",
+      "title": "Log on",
+      "subtitle": "Type your name to enter the desktop",
+      "form": {
+        "nameLabel": "Guest",
+        "namePlaceholder": "Your name",
+        "submit": "Enter"
+      },
+      "welcomeMessage": "Welcome, {{name}}",
+      "footerLeft": "Turn off computer",
+      "footerRight": "After logon you can continue to the desktop"
+    },
+    "desktop": {
+      "personalWelcome": "Signed in as {{name}}"
+    }
+  }
+}

@@ -1,0 +1,97 @@
+import { CommonModule } from '@angular/common';
+import { Component, AfterViewInit, inject } from '@angular/core';
+import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { TranslatePipe } from '@ngx-translate/core';
+import { gsap } from 'gsap';
+import { UserSessionService } from '../../core/services/user-session.service';
+
+type LoginState = 'form' | 'loading' | 'welcome';
+
+@Component({
+  selector: 'app-login',
+  standalone: true,
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    TranslatePipe,
+    MatCardModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    MatProgressBarModule,
+  ],
+  templateUrl: './login.component.html',
+  styleUrl: './login.component.scss',
+})
+export class LoginComponent implements AfterViewInit {
+  private router = inject(Router);
+  private userSessionService = inject(UserSessionService);
+
+  state: LoginState = 'form';
+  displayName = '';
+
+  nameControl = new FormControl('', {
+    nonNullable: true,
+    validators: [Validators.required, Validators.minLength(2), Validators.maxLength(24)],
+  });
+
+  ngAfterViewInit(): void {
+    gsap
+      .timeline()
+      .from('.login-shell__left', { x: -24, opacity: 0, duration: 0.55, ease: 'power2.out' })
+      .from('.login-card', { x: 24, opacity: 0, duration: 0.55, ease: 'power2.out' }, '-=0.4');
+  }
+
+  submitName(): void {
+    if (this.state !== 'form') return;
+
+    const normalizedName = this.nameControl.value.trim().replace(/\s+/g, ' ');
+    if (!normalizedName) {
+      this.nameControl.setErrors({ required: true });
+      this.nameControl.markAsTouched();
+      return;
+    }
+
+    if (normalizedName.length < 2) {
+      this.nameControl.setErrors({ minlength: true });
+      this.nameControl.markAsTouched();
+      return;
+    }
+
+    this.displayName = normalizedName;
+    this.userSessionService.setUserName(normalizedName);
+    this.state = 'loading';
+
+    gsap.to('.login-form-shell', { opacity: 0.5, duration: 0.2 });
+
+    gsap.delayedCall(1, () => {
+      this.state = 'welcome';
+
+      setTimeout(() => {
+        gsap
+          .timeline({
+            onComplete: () => {
+              gsap.delayedCall(2, () => this.router.navigateByUrl('/desktop'));
+            },
+          })
+          .to('.login-form-shell', {
+            opacity: 0,
+            y: -10,
+            duration: 0.3,
+            ease: 'power2.inOut',
+          })
+          .fromTo(
+            '.welcome-shell',
+            { opacity: 0, y: 14 },
+            { opacity: 1, y: 0, duration: 0.45, ease: 'power2.out' }
+          );
+      }, 0);
+    });
+  }
+}
