@@ -11,7 +11,21 @@
     <span class="xp-start__right-cap" aria-hidden="true"></span>
   </button>
 
-  <div class="xp-main" aria-hidden="false">
+  <div class="xp-main">
+    <div class="xp-tabs">
+      @for (win of windows; track win.id) {
+        <button
+          type="button"
+          class="xp-tab"
+          [class.xp-tab--active]="win.active && win.state === 'open'"
+          [class.xp-tab--minimized]="win.state === 'minimized'"
+          (click)="onWindowTabClick(win.id)"
+        >
+          {{ win.title }}
+        </button>
+      }
+    </div>
+
     <div class="xp-main__fill"></div>
 
     <button

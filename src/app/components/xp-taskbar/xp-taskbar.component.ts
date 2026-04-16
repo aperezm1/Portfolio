@@ -1,8 +1,9 @@
-import { Component, EventEmitter, OnDestroy, Output, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component, EventEmitter, Input, OnDestroy, Output, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 import { TranslatePipe } from '@ngx-translate/core';
+import { DesktopWindow } from '../../core/models/desktop-window.model';
 import { LanguageService } from '../../core/services/language.service';
 
 @Component({
@@ -10,13 +11,15 @@ import { LanguageService } from '../../core/services/language.service';
   standalone: true,
   imports: [CommonModule, MatButtonModule, MatMenuModule, TranslatePipe],
   templateUrl: './xp-taskbar.component.html',
-  styleUrls: ['./xp-taskbar.component.scss']
+  styleUrls: ['./xp-taskbar.component.scss'],
 })
 export class XpTaskbarComponent implements OnDestroy {
   private readonly languageService = inject(LanguageService);
   private timerId: ReturnType<typeof setInterval> | null = null;
 
+  @Input() windows: DesktopWindow[] = [];
   @Output() start = new EventEmitter<void>();
+  @Output() windowTabClick = new EventEmitter<string>();
 
   time = '';
   currentLang = 'ES';
@@ -40,6 +43,10 @@ export class XpTaskbarComponent implements OnDestroy {
 
   onStart(): void {
     this.start.emit();
+  }
+
+  onWindowTabClick(id: string): void {
+    this.windowTabClick.emit(id);
   }
 
   setLang(code: 'es' | 'en' | 'fr'): void {

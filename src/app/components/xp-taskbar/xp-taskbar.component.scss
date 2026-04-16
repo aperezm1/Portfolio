@@ -72,8 +72,43 @@
   min-width: 0;
   display: flex;
   align-items: stretch;
-  justify-content: flex-end;
   background: linear-gradient(180deg, #2f73e2 0%, #1e57c6 46%, #1a4fb8 100%);
+}
+
+.xp-tabs {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 0 6px;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.xp-tab {
+  max-width: 180px;
+  min-width: 130px;
+  height: 30px;
+  border: 1px solid #1846a5;
+  border-radius: 3px;
+  padding: 0 10px;
+  font-size: 12px;
+  color: #eff6ff;
+  background: linear-gradient(180deg, #3f81eb 0%, #2a64c8 100%);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
+}
+
+.xp-tab--active {
+  border-color: #163f94;
+  background: linear-gradient(180deg, #7ea6f1 0%, #4a7dd8 100%);
+  color: #ffffff;
+}
+
+.xp-tab--minimized {
+  opacity: 0.74;
 }
 
 .xp-main__fill {
@@ -142,6 +177,18 @@
 
   .xp-start__right-cap {
     margin-left: 6px;
+  }
+
+  .xp-tabs {
+    padding-inline: 4px;
+    gap: 3px;
+  }
+
+  .xp-tab {
+    min-width: 108px;
+    max-width: 140px;
+    font-size: 11px;
+    height: 28px;
   }
 
   .xp-tray {

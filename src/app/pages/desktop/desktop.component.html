@@ -1,5 +1,5 @@
 <section class="desktop-screen" role="main" aria-label="Desktop">
-  <div class="desktop-icons" aria-hidden="false">
+  <div class="desktop-icons">
     <app-desktop-icon
       label="{{ 'pages.desktop.app1' | translate }}"
       iconSrc="/assets/images/logo_xp.png"
@@ -13,5 +13,35 @@
     </app-desktop-icon>
   </div>
 
-  <app-xp-taskbar (start)="onStart()"></app-xp-taskbar>
+  <div class="desktop-windows">
+    @for (win of windows(); track win.id) {
+      @if (win.state === 'open') {
+        <section
+          class="desktop-window"
+          [class.desktop-window--active]="win.active"
+          [style.z-index]="win.zIndex"
+          (mousedown)="focusWindow(win.id)"
+        >
+          <header class="desktop-window__header">
+            <span class="desktop-window__title">{{ win.title }}</span>
+
+            <div class="desktop-window__actions">
+              <button type="button" class="xp-win-btn" (click)="minimizeWindow(win.id)">_</button>
+              <button type="button" class="xp-win-btn xp-win-btn--close" (click)="closeWindow(win.id)">x</button>
+            </div>
+          </header>
+
+          <div class="desktop-window__body">
+            <p>{{ win.content }}</p>
+          </div>
+        </section>
+      }
+    }
+  </div>
+
+  <app-xp-taskbar
+    [windows]="windows()"
+    (windowTabClick)="onTaskbarTabClick($event)"
+    (start)="onStart()">
+  </app-xp-taskbar>
 </section>
