@@ -1,59 +1,29 @@
-# Portfolio
+# Portfolio — Windows XP Style Portfolio (Breve)
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.22.
+Descripción
+-----------
+Portfolio personal que recrea la estética de Windows XP usando Angular. Incluye pantalla de arranque, login inspirado en XP y un escritorio con iconos y taskbar.
 
-## Development server
+Propósito
+--------
+- Mostrar trabajos y enlaces en una experiencia retro y visualmente cuidada.
+- Servir como demostración técnica de UI, animaciones y i18n en Angular.
 
-To start a local development server, run:
+Tecnologías principales
+----------------------
+- Angular 19 (componentes standalone)
+- Angular Material (componentes UI)
+- GSAP (animaciones)
+- ngx-translate (internacionalización — ES/EN/FR)
+- SCSS para estilos y theming
 
-```bash
-ng serve
-```
+Componentes clave
+-----------------
+- `DesktopIcon`: iconos reutilizables para el escritorio.
+- `XpTaskbar`: taskbar inferior con botón Start, selector de idioma y reloj.
+- `boot-screen`, `login`, `desktop`: páginas principales del flujo.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Recursos
+--------
+- Imágenes y fondo en `src/assets/images/` (ej. `background_xp.jpg`, `logo_xp.png`).
+- Traducciones en `src/assets/i18n/`.
