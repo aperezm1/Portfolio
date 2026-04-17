@@ -17,11 +17,13 @@
     @for (win of windows(); track win.id) {
       @if (win.state === 'open') {
         <section
-          class="desktop-window"
-          [class.desktop-window--active]="win.active"
-          [style.z-index]="win.zIndex"
-          (mousedown)="focusWindow(win.id)"
-        >
+  class="desktop-window"
+  [attr.data-window-id]="win.id"
+  [class.desktop-window--active]="win.active"
+  [class.desktop-window--opening]="isPendingOpenAnimation(win.id)"
+  [style.z-index]="win.zIndex"
+  (mousedown)="focusWindow(win.id)"
+>
           <header class="desktop-window__header">
             <span class="desktop-window__title">{{ win.titleKey | translate }}</span>
 
