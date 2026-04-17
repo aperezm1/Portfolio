@@ -6,6 +6,7 @@ import { DesktopIconComponent } from '../../components/desktop-icon/desktop-icon
 import { XpTaskbarComponent } from '../../components/xp-taskbar/xp-taskbar.component';
 import { WindowManagerService } from '../../core/services/window-manager.service';
 import { MyPcAppComponent } from '../my-pc-app/my-pc-app.component';
+import { InternetExplorerAppComponent } from '../internet-explorer-app/internet-explorer-app.component';
 
 @Component({
   selector: 'app-desktop',
@@ -15,6 +16,7 @@ import { MyPcAppComponent } from '../my-pc-app/my-pc-app.component';
     DesktopIconComponent,
     XpTaskbarComponent,
     MyPcAppComponent,
+    InternetExplorerAppComponent,
     TranslatePipe,
   ],
   templateUrl: './desktop.component.html',
@@ -37,8 +39,7 @@ export class DesktopComponent {
       },
       app2: {
         titleKey: 'pages.desktop.app2',
-        appType: 'placeholder',
-        contentKey: 'pages.desktop.placeholder',
+        appType: 'internet-explorer',
       },
     };
 

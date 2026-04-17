@@ -17,13 +17,13 @@
     @for (win of windows(); track win.id) {
       @if (win.state === 'open') {
         <section
-  class="desktop-window"
-  [attr.data-window-id]="win.id"
-  [class.desktop-window--active]="win.active"
-  [class.desktop-window--opening]="isPendingOpenAnimation(win.id)"
-  [style.z-index]="win.zIndex"
-  (mousedown)="focusWindow(win.id)"
->
+          class="desktop-window"
+          [attr.data-window-id]="win.id"
+          [class.desktop-window--active]="win.active"
+          [class.desktop-window--opening]="isPendingOpenAnimation(win.id)"
+          [style.z-index]="win.zIndex"
+          (mousedown)="focusWindow(win.id)"
+        > 
           <header class="desktop-window__header">
             <span class="desktop-window__title">{{ win.titleKey | translate }}</span>
 
@@ -37,6 +37,9 @@
             @switch (win.appType) {
               @case ('my-pc') {
                 <app-my-pc-app />
+              }
+              @case ('internet-explorer') {
+                <app-internet-explorer-app />
               }
               @default {
                 <p class="desktop-window__placeholder">{{ win.content }}</p>

@@ -40,7 +40,9 @@
   top: 42%;
   transform: translate(-50%, -50%);
   width: min(920px, 86vw);
-  min-height: 520px;
+  height: 520px;
+  display: flex;
+  flex-direction: column;
   border-radius: 8px;
   border: 1px solid #6b95d7;
   background: linear-gradient(180deg, #fbfdff 0%, #edf3ff 100%);
@@ -49,12 +51,6 @@
   overflow: hidden;
   transform-origin: center center;
   will-change: transform, opacity;
-}
-
-.desktop-window__body {
-  flex: 1;
-  min-height: 0;
-  background: #ffffff;
 }
 
 .desktop-window--active {
@@ -101,7 +97,9 @@
 }
 
 .desktop-window__body {
-  min-height: calc(520px - 34px);
+  flex: 1;
+  min-height: 0;
+  height: 100%;
   background: #ffffff;
 }
 
@@ -119,12 +117,8 @@
 @media (max-width: 900px) {
   .desktop-window {
     width: min(96vw, 620px);
-    min-height: 420px;
+    height: 420px;
     top: 46%;
-  }
-
-  .desktop-window__body {
-    min-height: calc(420px - 34px);
   }
 }
 
@@ -137,11 +131,7 @@
 
   .desktop-window {
     width: 96vw;
-    min-height: 74vh;
+    height: 74vh;
     top: 47%;
-  }
-
-  .desktop-window__body {
-    min-height: calc(74vh - 34px);
   }
 }

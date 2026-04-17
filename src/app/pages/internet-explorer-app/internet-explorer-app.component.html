@@ -1,0 +1,117 @@
+<div class="ie-app">
+  <div class="ie-toolbar">
+    <button type="button" class="ie-tool-btn ie-tool-btn--icon" title="{{ 'pages.internetExplorer.toolbar.back' | translate }}">
+      <span aria-hidden="true">◀</span>
+    </button>
+    <button type="button" class="ie-tool-btn ie-tool-btn--icon" title="{{ 'pages.internetExplorer.toolbar.forward' | translate }}">
+      <span aria-hidden="true">▶</span>
+    </button>
+    <button type="button" class="ie-tool-btn ie-tool-btn--icon" title="{{ 'pages.internetExplorer.toolbar.refresh' | translate }}">
+      <span aria-hidden="true">↻</span>
+    </button>
+    <button type="button" class="ie-tool-btn ie-tool-btn--icon" title="{{ 'pages.internetExplorer.toolbar.home' | translate }}">
+      <span aria-hidden="true">⌂</span>
+    </button>
+
+    <div class="ie-address-wrap">
+      <label>{{ 'pages.internetExplorer.toolbar.address' | translate }}</label>
+      <input [value]="selectedProject.deployUrl" readonly />
+      <a
+        class="ie-go-btn"
+        [href]="selectedProject.deployUrl"
+        target="_blank"
+        rel="noopener noreferrer"
+        (mouseenter)="onHoverOpen()"
+        (mouseleave)="onLeaveAction()"
+        (click)="onOpenLink()"
+      >
+        {{ 'pages.internetExplorer.toolbar.go' | translate }}
+      </a>
+    </div>
+  </div>
+
+  <div class="ie-main">
+    <aside class="ie-sidebar">
+      <h3>{{ 'pages.internetExplorer.sidebar.title' | translate }}</h3>
+
+      @for (project of projects; track project.id) {
+        <button
+          type="button"
+          class="ie-project-item"
+          [class.ie-project-item--active]="project.id === selectedProjectId"
+          (click)="selectProject(project.id)"
+        >
+          {{ project.titleKey | translate }}
+        </button>
+      }
+    </aside>
+
+    <section class="ie-content">
+      <div class="ie-project-header">
+        <h2>{{ selectedProject.titleKey | translate }}</h2>
+        <span class="ie-status" [class.ie-status--wip]="selectedProject.status === 'wip'">
+          {{ ('pages.internetExplorer.labels.' + selectedProject.status) | translate }}
+        </span>
+      </div>
+
+      <p class="ie-summary">{{ selectedProject.summaryKey | translate }}</p>
+
+      <div class="ie-stack">
+        @for (tech of selectedProject.stack; track tech) {
+          <span class="ie-chip">{{ tech }}</span>
+        }
+      </div>
+
+      <div class="ie-actions">
+        <a
+          class="ie-action ie-action--primary"
+          [href]="selectedProject.deployUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+          (mouseenter)="onHoverOpen()"
+          (mouseleave)="onLeaveAction()"
+          (click)="onOpenLink()"
+        >
+          {{ 'pages.internetExplorer.actions.openSite' | translate }}
+        </a>
+
+        @if (selectedProject.repoUrl) {
+          <a
+            class="ie-action"
+            [href]="selectedProject.repoUrl"
+            target="_blank"
+            rel="noopener noreferrer"
+            (mouseenter)="onHoverRepo()"
+            (mouseleave)="onLeaveAction()"
+          >
+            {{ 'pages.internetExplorer.actions.viewCode' | translate }}
+          </a>
+        }
+      </div>
+
+      <div class="ie-preview">
+        <a
+          class="ie-preview__link"
+          [href]="selectedProject.deployUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+          (mouseenter)="onHoverOpen()"
+          (mouseleave)="onLeaveAction()"
+          (click)="onOpenLink()"
+        >
+          <img
+            class="ie-preview__img"
+            [src]="selectedProjectPreviewPath"
+            [alt]="selectedProject.titleKey | translate"
+            loading="lazy"
+            (error)="onPreviewError($event)"
+          />
+        </a>
+      </div>
+    </section>
+  </div>
+
+  <footer class="ie-status-bar">
+    {{ statusMessageKey | translate }}
+  </footer>
+</div>

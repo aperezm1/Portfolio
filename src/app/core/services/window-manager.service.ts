@@ -1,13 +1,6 @@
 import { Injectable, signal } from '@angular/core';
 import { DesktopWindow } from '../models/desktop-window.model';
-
-export interface OpenWindowConfig {
-  id: string;
-  titleKey: string;
-  iconSrc?: string;
-  content?: string;
-  appType?: string;
-}
+import { OpenWindowConfig } from '../models/open-window-config.model';
 
 @Injectable({
   providedIn: 'root',

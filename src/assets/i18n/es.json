@@ -66,6 +66,48 @@
       "skills": {
         "title": "Stack principal"
       }
+    },
+    "internetExplorer": {
+      "toolbar": {
+        "back": "Atrás",
+        "forward": "Adelante",
+        "refresh": "Actualizar",
+        "home": "Inicio",
+        "address": "Dirección",
+        "go": "Ir"
+      },
+      "sidebar": {
+        "title": "Proyectos"
+      },
+      "actions": {
+        "openSite": "Abrir sitio",
+        "viewCode": "Ver código"
+      },
+      "labels": {
+        "online": "En línea",
+        "wip": "En desarrollo"
+      },
+      "status": {
+        "ready": "Listo",
+        "opening": "Abriendo proyecto...",
+        "hoverOpen": "Abrir despliegue",
+        "hoverRepo": "Abrir repositorio",
+        "projectSelected": "Proyecto seleccionado"
+      },
+      "projects": {
+        "project1": {
+          "title": "The Witcher Web",
+          "summary": "Videojuego sencillo para navegador inspirado en el universo The Witcher: pequeño bucle de juego, gráficos tipo sprite y gestión de estado básica."
+        },
+        "project2": {
+          "title": "Primer Proyecto Angular",
+          "summary": "SPA tutorial compacta para aprender los fundamentos de Angular: componentes, enrutamiento, formularios e integración HTTP básica."
+        },
+        "project3": {
+          "title": "Portfolio",
+          "summary": "Portfolio personal estilo Windows XP que muestra proyectos, habilidades y currículum, con soporte multilenguaje y detalles visuales ligeros."
+        }
+      }
     }
   }
 }

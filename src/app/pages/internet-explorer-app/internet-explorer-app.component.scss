@@ -1,0 +1,256 @@
+:host {
+  display: block;
+  height: 100%;
+}
+
+.ie-app {
+  height: 100%;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: #f2f6fc;
+  color: #0f2f67;
+  font-family: Tahoma, Verdana, sans-serif;
+  border-top: 1px solid #ffffff;
+}
+
+.ie-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 8px;
+  background: #ece9d8;
+  border-bottom: 1px solid #b7b08a;
+  flex-wrap: nowrap;
+}
+
+.ie-tool-btn,
+.ie-go-btn {
+  height: 24px;
+  border: 1px solid #7f9db9;
+  background: linear-gradient(180deg, #ffffff 0%, #dde8f8 100%);
+  color: #0f2f67;
+  font-size: 12px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.ie-tool-btn--icon {
+  width: 28px;
+  min-width: 28px;
+  padding: 0;
+  font-size: 13px;
+  line-height: 1;
+}
+
+.ie-go-btn {
+  padding: 0 10px;
+}
+
+.ie-address-wrap {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex: 1;
+  min-width: 0;
+}
+
+.ie-address-wrap label {
+  font-size: 12px;
+  color: #304b79;
+}
+
+.ie-address-wrap input {
+  height: 24px;
+  flex: 1;
+  min-width: 0;
+  border: 1px solid #7f9db9;
+  background: #ffffff;
+  padding: 0 6px;
+  font-size: 12px;
+  color: #1d3257;
+}
+
+.ie-main {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  overflow: hidden;
+}
+
+.ie-sidebar {
+  border-right: 1px solid #b2c4df;
+  background: linear-gradient(180deg, #eaf2ff 0%, #d8e8ff 100%);
+  padding: 10px;
+  overflow: auto;
+}
+
+.ie-sidebar h3 {
+  margin: 0 0 8px;
+  font-size: 13px;
+  color: #214f9d;
+}
+
+.ie-project-item {
+  width: 100%;
+  text-align: left;
+  margin-bottom: 6px;
+  padding: 8px;
+  border: 1px solid #9cb6df;
+  background: #f6fbff;
+  color: #173b79;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.ie-project-item--active {
+  background: #dfeeff;
+  border-color: #7ea0d6;
+  font-weight: 700;
+}
+
+.ie-content {
+  padding: 14px;
+  background: #ffffff;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.ie-project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.ie-project-header h2 {
+  margin: 0;
+  font-size: 18px;
+  color: #1b3f84;
+}
+
+.ie-status {
+  border: 1px solid #78b878;
+  color: #256225;
+  background: #e9f9e9;
+  padding: 2px 8px;
+  font-size: 11px;
+}
+
+.ie-status--wip {
+  border-color: #caa46f;
+  color: #7a531a;
+  background: #fff1dd;
+}
+
+.ie-summary {
+  margin: 0 0 12px;
+  font-size: 13px;
+  line-height: 1.45;
+  color: #223c67;
+}
+
+.ie-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+.ie-chip {
+  border: 1px solid #98b7e8;
+  border-radius: 999px;
+  background: #eef5ff;
+  color: #1e4d99;
+  padding: 3px 9px;
+  font-size: 12px;
+}
+
+.ie-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 4px;
+}
+
+.ie-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 28px;
+  padding: 0 12px;
+  border: 1px solid #7f9db9;
+  background: linear-gradient(180deg, #ffffff 0%, #dde8f8 100%);
+  color: #0f2f67;
+  font-size: 12px;
+  text-decoration: none;
+}
+
+.ie-action--primary {
+  border-color: #4f78bd;
+  background: linear-gradient(180deg, #e8f0ff 0%, #bfd5ff 100%);
+}
+
+.ie-preview {
+  flex: 1;
+  min-height: 240px;
+  border: 1px solid #9cb6df;
+  background: #ffffff;
+  overflow: hidden;
+  margin-top: 4px;
+  display: flex;
+}
+
+.ie-preview__link {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.ie-preview__img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: top center;
+  image-rendering: auto;
+}
+
+.ie-preview__frame {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.ie-status-bar {
+  height: 24px;
+  border-top: 1px solid #b7b08a;
+  background: #ece9d8;
+  padding: 0 8px;
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  color: #264474;
+}
+
+@media (max-width: 900px) {
+  .ie-main {
+    grid-template-columns: 1fr;
+  }
+
+  .ie-sidebar {
+    border-right: 0;
+    border-bottom: 1px solid #b2c4df;
+  }
+
+  .ie-preview {
+    min-height: 0;
+  }
+}
