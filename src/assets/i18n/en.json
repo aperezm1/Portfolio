@@ -4,6 +4,7 @@
   },
   "common": {
     "logoAlt": "Portfolio logo",
+    "avatarAlt": "Profile avatar",
     "actions": {
       "clickToStart": "click to start",
       "start": "Start"
@@ -31,7 +32,40 @@
       "footerRight": "After logon you can continue to the desktop"
     },
     "desktop": {
-      "personalWelcome": "Signed in as {{name}}"
+      "personalWelcome": "Signed in as {{name}}",
+      "app1": "My PC",
+      "app2": "Internet Explorer",
+      "placeholder": "Application under construction. Real content will be added soon."
+    },
+    "myPc": {
+      "sidebar": {
+        "title": "System tasks",
+        "systemInfo": "View system information",
+        "skills": "View core skills",
+        "contact": "Contact options"
+      },
+      "links": {
+        "title": "Quick links",
+        "github": "Open GitHub",
+        "linkedin": "Open LinkedIn",
+        "cv": "Download resume"
+      },
+      "profile": {
+        "title": "Professional profile",
+        "roleValue": "Multiplatform Developer",
+        "bio": "Student of Multiplatform Application Development (DAM) with a proactive and hardworking profile; creative and team-oriented, with strong planning skills and high flexibility and adaptability to take on new challenges and changing environments.",
+        "detailsTitle": "Basic details",
+        "locationLabel": "Location",
+        "locationValue": "Madrid, Spain",
+        "emailLabel": "Email",
+        "focusLabel": "Specialization",
+        "birthLabel": "Date of birth",
+        "birthValue": "2000/07/03",
+        "phoneLabel": "Phone"
+      },
+      "skills": {
+        "title": "Main stack"
+      }
     }
   }
 }

@@ -4,6 +4,7 @@
   },
   "common": {
     "logoAlt": "Logo du portfolio",
+    "avatarAlt": "Avatar du profil",
     "actions": {
       "clickToStart": "cliquez pour demarrer",
       "start": "Demarrer"
@@ -18,12 +19,11 @@
   },
   "pages": {
     "login": {
-      "logoAlt": "Logo de connexion",
       "leftHint": "Pour commencer, saisissez votre nom",
       "title": "Ouverture de session",
       "subtitle": "Entrez votre nom pour acceder au bureau",
       "form": {
-        "nameLabel": "Invit",
+        "nameLabel": "Invite",
         "namePlaceholder": "Votre nom",
         "submit": "Entrer"
       },
@@ -32,7 +32,46 @@
       "footerRight": "Apres connexion vous pourrez acceder au bureau"
     },
     "desktop": {
-      "personalWelcome": "Connecte en tant que {{name}}"
+      "personalWelcome": "Connecte en tant que {{name}}",
+      "app1": "Poste de travail",
+      "app2": "Internet Explorer",
+      "placeholder": "Application en construction. Le contenu reel arrivera bientot."
+    },
+    "myPc": {
+      "sidebar": {
+        "title": "Tâches système",
+        "systemInfo": "Voir les informations système",
+        "skills": "Voir les compétences principales",
+        "contact": "Options de contact"
+      },
+      "links": {
+        "title": "Liens rapides",
+        "github": "Ouvrir GitHub",
+        "linkedin": "Ouvrir LinkedIn",
+        "cv": "Télécharger le CV"
+      },
+      "profile": {
+        "title": "Profil professionnel",
+        "roleValue": "Développeur multiplateforme",
+        "bio": "Étudiant en Développement d'Applications Multiplateformes (DAM) avec un profil proactif et travailleur ; créatif et orienté vers le travail en équipe, avec de solides capacités de planification et une grande flexibilité et adaptabilité pour relever de nouveaux défis et s'adapter à des environnements changeants.",
+        "detailsTitle": "Informations de base",
+        "locationLabel": "Localisation",
+        "locationValue": "Madrid, Espagne",
+        "emailLabel": "Email",
+        "focusLabel": "Spécialisation",
+        "birthLabel": "Date de naissance",
+        "birthValue": "03/07/2000",
+        "phoneLabel": "Téléphone"
+      },
+      "skills": {
+        "title": "Stack principal",
+        "angular": "Angular",
+        "typescript": "TypeScript",
+        "rxjs": "RxJS",
+        "node": "Node.js",
+        "sql": "SQL",
+        "gsap": "GSAP"
+      }
     }
   }
 }

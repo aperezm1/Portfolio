@@ -4,11 +4,18 @@ import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import { DesktopIconComponent } from '../../components/desktop-icon/desktop-icon.component';
 import { XpTaskbarComponent } from '../../components/xp-taskbar/xp-taskbar.component';
 import { WindowManagerService } from '../../core/services/window-manager.service';
+import { MyPcAppComponent } from '../my-pc-app/my-pc-app.component';
 
 @Component({
   selector: 'app-desktop',
   standalone: true,
-  imports: [CommonModule, DesktopIconComponent, XpTaskbarComponent, TranslatePipe],
+  imports: [
+    CommonModule,
+    DesktopIconComponent,
+    XpTaskbarComponent,
+    MyPcAppComponent,
+    TranslatePipe,
+  ],
   templateUrl: './desktop.component.html',
   styleUrls: ['./desktop.component.scss'],
 })
@@ -19,23 +26,28 @@ export class DesktopComponent {
   readonly windows = this.windowManager.windows;
 
   openApp(id: string): void {
-    const contentById: Record<string, string> = {
-      app1: 'Placeholder de la primera app. Aqui ira tu primera pantalla real.',
-      app2: 'Placeholder de la segunda app. Sirve para probar pestanas y estados.',
+    const appConfig: Record<
+      string,
+      { titleKey: string; appType: string; contentKey?: string }
+    > = {
+      app1: {
+        titleKey: 'pages.desktop.app1',
+        appType: 'my-pc',
+      },
+      app2: {
+        titleKey: 'pages.desktop.app2',
+        appType: 'placeholder',
+        contentKey: 'pages.desktop.placeholder',
+      },
     };
 
-    const titleKeyById: Record<string, string> = {
-      app1: 'pages.desktop.app1',
-      app2: 'pages.desktop.app2',
-    };
-
-    const titleKey = titleKeyById[id] ?? 'pages.desktop.app1';
-    const title = this.translate.instant(titleKey);
+    const current = appConfig[id] ?? appConfig['app1'];
 
     this.windowManager.openWindow({
       id,
-      title,
-      content: contentById[id] ?? 'Ventana de prueba',
+      titleKey: current.titleKey,
+      appType: current.appType,
+      content: current.contentKey ? this.translate.instant(current.contentKey) : '',
     });
   }
 

@@ -2,13 +2,13 @@
   <div class="desktop-icons">
     <app-desktop-icon
       label="{{ 'pages.desktop.app1' | translate }}"
-      iconSrc="/assets/images/logo_xp.png"
+      iconSrc="/assets/images/my_pc.png"
       (select)="openApp('app1')">
     </app-desktop-icon>
 
     <app-desktop-icon
       label="{{ 'pages.desktop.app2' | translate }}"
-      iconSrc="/assets/images/avatar_xp.jpg"
+      iconSrc="/assets/images/explorer.png"
       (select)="openApp('app2')">
     </app-desktop-icon>
   </div>
@@ -23,7 +23,7 @@
           (mousedown)="focusWindow(win.id)"
         >
           <header class="desktop-window__header">
-            <span class="desktop-window__title">{{ win.title }}</span>
+            <span class="desktop-window__title">{{ win.titleKey | translate }}</span>
 
             <div class="desktop-window__actions">
               <button type="button" class="xp-win-btn" (click)="minimizeWindow(win.id)">_</button>
@@ -32,7 +32,14 @@
           </header>
 
           <div class="desktop-window__body">
-            <p>{{ win.content }}</p>
+            @switch (win.appType) {
+              @case ('my-pc') {
+                <app-my-pc-app />
+              }
+              @default {
+                <p class="desktop-window__placeholder">{{ win.content }}</p>
+              }
+            }
           </div>
         </section>
       }

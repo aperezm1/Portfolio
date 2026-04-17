@@ -3,9 +3,10 @@ import { DesktopWindow } from '../models/desktop-window.model';
 
 export interface OpenWindowConfig {
   id: string;
-  title: string;
+  titleKey: string;
   iconSrc?: string;
   content?: string;
+  appType?: string;
 }
 
 @Injectable({
@@ -29,9 +30,10 @@ export class WindowManagerService {
     this.zCounter += 1;
     const next: DesktopWindow = {
       id: config.id,
-      title: config.title,
+      titleKey: config.titleKey,
       iconSrc: config.iconSrc,
       content: config.content,
+      appType: config.appType,
       state: 'open',
       active: true,
       zIndex: this.zCounter,

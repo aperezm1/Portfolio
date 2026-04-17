@@ -1,23 +1,37 @@
 .desktop-icon {
+  appearance: none;
+  -webkit-appearance: none;
   background: transparent;
   border: 0;
+  outline: 0;
+  box-shadow: none;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 0.5rem;
   cursor: pointer;
   color: #ffffff;
-  text-shadow: 0 1px 0 rgba(0,0,0,0.6);
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.6);
   padding: 0;
+  border-radius: 0;
+}
+
+.desktop-icon:focus,
+.desktop-icon:active {
+  outline: none;
+  box-shadow: none;
+  background: transparent;
 }
 
 .desktop-icon__img {
-  display: none;
+  display: block;
   width: 64px;
   height: 64px;
-  border-radius: 6px;
-  box-shadow: 0 6px 14px rgba(0,0,0,0.35);
-  object-fit: cover;
+  object-fit: contain;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
 }
 
 .desktop-icon.has-icon .desktop-icon__img {

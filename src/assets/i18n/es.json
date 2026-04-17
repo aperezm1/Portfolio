@@ -4,6 +4,7 @@
   },
   "common": {
     "logoAlt": "Logo del portfolio",
+    "avatarAlt": "Avatar de perfil",
     "actions": {
       "clickToStart": "haz clic para iniciar",
       "start": "Inicio"
@@ -32,8 +33,39 @@
     },
     "desktop": {
       "personalWelcome": "Sesion iniciada como {{name}}",
-      "app1": "Aplicacion 1",
-      "app2": "Aplicacion 2"
+      "app1": "Mi PC",
+      "app2": "Internet Explorer",
+      "placeholder": "Aplicacion en construccion. Pronto habra contenido real aqui."
+    },
+    "myPc": {
+      "sidebar": {
+        "title": "Tareas del sistema",
+        "systemInfo": "Ver informacion del sistema",
+        "skills": "Ver habilidades principales",
+        "contact": "Opciones de contacto"
+      },
+      "links": {
+        "title": "Enlaces rapidos",
+        "github": "Ver GitHub",
+        "linkedin": "Ver LinkedIn",
+        "cv": "Descargar CV"
+      },
+      "profile": {
+        "title": "Informacion profesional",
+        "roleValue": "Desarrollador Multiplataforma",
+        "bio": "Estudiante de Desarrollo de Aplicaciones Multiplataforma (DAM) con un perfil proactivo y trabajado; creativo y orientado al trabajo en equipo, con sólidas capacidades de planificación y alta flexibilidad y adaptabilidad para asumir nuevos retos y entornos cambiantes.",
+        "detailsTitle": "Datos basicos",
+        "locationLabel": "Ubicacion",
+        "locationValue": "Madrid, España",
+        "emailLabel": "Email",
+        "focusLabel": "Especializacion",
+        "birthLabel": "Fecha de nacimiento",
+        "birthValue": "03/07/2000",
+        "phoneLabel": "Teléfono"
+      },
+      "skills": {
+        "title": "Stack principal"
+      }
     }
   }
 }

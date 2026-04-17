@@ -1,0 +1,62 @@
+<div class="my-pc">
+  <aside class="my-pc__sidebar">
+    <div class="xp-panel">
+      <h3>{{ 'pages.myPc.sidebar.title' | translate }}</h3>
+      <ul>
+        <li>{{ 'pages.myPc.sidebar.systemInfo' | translate }}</li>
+        <li>{{ 'pages.myPc.sidebar.skills' | translate }}</li>
+        <li>{{ 'pages.myPc.sidebar.contact' | translate }}</li>
+      </ul>
+    </div>
+
+    <div class="xp-panel">
+      <h3>{{ 'pages.myPc.links.title' | translate }}</h3>
+      <a [href]="githubUrl" target="_blank" rel="noopener noreferrer">
+        {{ 'pages.myPc.links.github' | translate }}
+      </a>
+      <a [href]="linkedinUrl" target="_blank" rel="noopener noreferrer">
+        {{ 'pages.myPc.links.linkedin' | translate }}
+      </a>
+      <a [href]="cvUrl" target="_blank" rel="noopener noreferrer">
+        {{ 'pages.myPc.links.cv' | translate }}
+      </a>
+    </div>
+  </aside>
+
+  <main class="my-pc__content">
+    <header class="my-pc__header">
+      <img src="/assets/images/avatar_xp.jpg" [alt]="'common.avatarAlt' | translate" />
+      <div>
+        <h2>Adrián Pérez Morales</h2>
+        <p>{{ 'pages.myPc.profile.roleValue' | translate }}</p>
+      </div>
+    </header>
+
+    <section class="xp-block">
+      <h4>{{ 'pages.myPc.profile.title' | translate }}</h4>
+      <p>{{ 'pages.myPc.profile.bio' | translate }}</p>
+    </section>
+
+    <section class="xp-grid">
+      <div class="xp-block">
+        <h4>{{ 'pages.myPc.profile.detailsTitle' | translate }}</h4>
+        <p>🌍<strong>{{ 'pages.myPc.profile.locationLabel' | translate }}:</strong> {{ 'pages.myPc.profile.locationValue' | translate }}</p>
+        <p>📧<strong>{{ 'pages.myPc.profile.emailLabel' | translate }}:</strong> adrianperez936&#64;gmail.com</p>
+        <p>🎂<strong>{{ 'pages.myPc.profile.birthLabel' | translate }}:</strong> {{ 'pages.myPc.profile.birthValue' | translate }}</p>
+        <p>📞<strong>{{ 'pages.myPc.profile.phoneLabel' | translate }}:</strong> +34 652 45 87 51</p>
+        <p>💻<strong>{{ 'pages.myPc.profile.focusLabel' | translate }}:</strong> Backend</p>
+      </div>
+
+      <div class="xp-block">
+        <h4>{{ 'pages.myPc.skills.title' | translate }}</h4>
+        <div class="xp-skills">
+  @for (skill of skills; track skill.label) {
+    <a class="xp-skill" [href]="skill.url" target="_blank" rel="noopener noreferrer">
+      {{ skill.label }}
+    </a>
+  }
+</div>
+      </div>
+    </section>
+  </main>
+</div>

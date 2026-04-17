@@ -39,14 +39,22 @@
   left: 50%;
   top: 42%;
   transform: translate(-50%, -50%);
-  width: min(720px, 78vw);
-  min-height: 320px;
+  width: min(920px, 86vw);
+  min-height: 520px;
+  display: flex;
+  flex-direction: column;
   border-radius: 8px;
   border: 1px solid #6b95d7;
   background: linear-gradient(180deg, #fbfdff 0%, #edf3ff 100%);
   box-shadow: 0 16px 38px rgba(5, 17, 44, 0.45);
   pointer-events: auto;
   overflow: hidden;
+}
+
+.desktop-window__body {
+  flex: 1;
+  min-height: 0;
+  background: #ffffff;
 }
 
 .desktop-window--active {
@@ -93,9 +101,27 @@
 }
 
 .desktop-window__body {
+  min-height: calc(520px - 34px);
+  background: #ffffff;
+}
+
+.desktop-window__placeholder {
+  margin: 0;
   padding: 1rem;
   color: #1f2b42;
   font-size: 0.95rem;
+}
+
+@media (max-width: 900px) {
+  .desktop-window {
+    width: min(96vw, 620px);
+    min-height: 420px;
+    top: 46%;
+  }
+
+  .desktop-window__body {
+    min-height: calc(420px - 34px);
+  }
 }
 
 @media (max-width: 720px) {
@@ -106,8 +132,12 @@
   }
 
   .desktop-window {
-    width: min(94vw, 520px);
-    min-height: 260px;
-    top: 46%;
+    width: 96vw;
+    min-height: 74vh;
+    top: 47%;
+  }
+
+  .desktop-window__body {
+    min-height: calc(74vh - 34px);
   }
 }

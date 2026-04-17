@@ -21,7 +21,7 @@
           [class.xp-tab--minimized]="win.state === 'minimized'"
           (click)="onWindowTabClick(win.id)"
         >
-          {{ win.title }}
+          {{ win.titleKey | translate }}
         </button>
       }
     </div>
