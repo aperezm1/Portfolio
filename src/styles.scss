@@ -41,3 +41,21 @@ h3,
 h4 {
   font-family: var(--font-title);
 }
+
+html, body, *:not(input):not(textarea):not(select):not(button):not(a):not([contenteditable="true"]) {
+  cursor: url("assets/images/xp-arrow.cur"), auto;
+}
+
+input, textarea, select, [contenteditable="true"] {
+  cursor: url("assets/images/xp-ibeam.cur"), text !important;
+}
+
+button, button *,
+a[href], a[href] *,
+[role="button"], [role="button"] *,
+.clickable, .clickable *,
+input[type="button"], input[type="submit"],
+.mat-button, .mat-button *,
+.mat-icon-button, .mat-icon-button * {
+  cursor: url("assets/images/xp-hand.cur"), pointer !important;
+}
