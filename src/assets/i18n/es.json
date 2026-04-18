@@ -108,6 +108,22 @@
           "summary": "Portfolio personal estilo Windows XP que muestra proyectos, habilidades y currículum, con soporte multilenguaje y detalles visuales ligeros."
         }
       }
+    },
+    "photoViewer": {
+      "sidebar": {
+        "projects": "Proyectos"
+      },
+      "actions": {
+        "gallery": "Galería",
+        "fit": "Ajustar"
+      },
+      "shots": {
+        "login": "Pantalla de login",
+        "home": "Pantalla principal",
+        "detail": "Pantalla de detalle",
+        "checkout": "Pantalla de checkout",
+        "profile": "Pantalla de perfil"
+      }
     }
   }
 }

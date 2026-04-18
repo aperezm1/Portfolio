@@ -108,6 +108,22 @@
           "summary": "A Windows XP–style personal portfolio showcasing projects, skills and résumé, with multilingual support and lightweight UI polish."
         }
       }
+    },
+    "photoViewer": {
+      "sidebar": {
+        "projects": "Projects"
+      },
+      "actions": {
+        "gallery": "Gallery",
+        "fit": "Best Fit"
+      },
+      "shots": {
+        "login": "Login screen",
+        "home": "Home screen",
+        "detail": "Detail screen",
+        "checkout": "Checkout screen",
+        "profile": "Profile screen"
+      }
     }
   }
 }

@@ -1,0 +1,150 @@
+:host {
+  display: block;
+  height: 100%;
+}
+
+.mv-app {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: #f2f6fc;
+  color: #0f2f67;
+  font-family: Tahoma, Verdana, sans-serif;
+}
+
+.mv-toolbar {
+  display: flex;
+  gap: 6px;
+  padding: 6px 8px;
+  background: #ece9d8;
+  border-bottom: 1px solid #b7b08a;
+}
+
+.mv-btn {
+  height: 24px;
+  border: 1px solid #7f9db9;
+  background: linear-gradient(180deg, #ffffff 0%, #dde8f8 100%);
+  color: #0f2f67;
+  font-size: 12px;
+  padding: 0 10px;
+}
+
+.mv-main {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: 220px 1fr;
+}
+
+.mv-sidebar {
+  border-right: 1px solid #b2c4df;
+  background: linear-gradient(180deg, #eaf2ff 0%, #d8e8ff 100%);
+  padding: 10px;
+  overflow: auto;
+}
+
+.mv-sidebar h3 {
+  margin: 0 0 8px;
+  font-size: 13px;
+  color: #214f9d;
+}
+
+.mv-project {
+  width: 100%;
+  margin-bottom: 6px;
+  text-align: left;
+  border: 1px solid #9cb6df;
+  background: #f6fbff;
+  padding: 8px;
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.mv-project--active {
+  background: #dfeeff;
+  border-color: #7ea0d6;
+  font-weight: 700;
+}
+
+.mv-project__meta {
+  font-size: 11px;
+  opacity: 0.8;
+}
+
+.mv-content {
+  padding: 12px;
+  background: #fff;
+  overflow: auto;
+}
+
+.mv-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 10px;
+}
+
+.mv-thumb {
+  border: 1px solid #9cb6df;
+  background: #f9fcff;
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: left;
+}
+
+.mv-thumb img {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  border: 1px solid #b7c9e6;
+  background: #fff;
+}
+
+.mv-thumb span {
+  font-size: 12px;
+  color: #1a3f84;
+}
+
+.mv-viewer {
+  height: 100%;
+  min-height: 260px;
+  border: 1px solid #9cb6df;
+  background: #f4f8ff;
+  display: grid;
+  place-items: center;
+  overflow: auto;
+  position: relative;
+}
+
+.mv-image {
+  max-width: 82%;
+  max-height: 82%;
+  transform-origin: center center;
+  transition: transform 120ms ease;
+  border: 1px solid #9fb7dd;
+  background: #fff;
+}
+
+.mv-caption {
+  position: sticky;
+  bottom: 0;
+  width: 100%;
+  background: rgba(236, 233, 216, 0.95);
+  border-top: 1px solid #b7b08a;
+  font-size: 12px;
+  padding: 4px 8px;
+  color: #27426f;
+}
+
+.mv-status {
+  height: 24px;
+  border-top: 1px solid #b7b08a;
+  background: #ece9d8;
+  padding: 0 8px;
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+}

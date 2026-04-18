@@ -7,6 +7,7 @@ import { XpTaskbarComponent } from '../../components/xp-taskbar/xp-taskbar.compo
 import { WindowManagerService } from '../../core/services/window-manager.service';
 import { MyPcAppComponent } from '../my-pc-app/my-pc-app.component';
 import { InternetExplorerAppComponent } from '../internet-explorer-app/internet-explorer-app.component';
+import { PhotoViewerAppComponent } from '../photo-viewer-app/photo-viewer-app.component';
 
 @Component({
   selector: 'app-desktop',
@@ -17,6 +18,7 @@ import { InternetExplorerAppComponent } from '../internet-explorer-app/internet-
     XpTaskbarComponent,
     MyPcAppComponent,
     InternetExplorerAppComponent,
+    PhotoViewerAppComponent,
     TranslatePipe,
   ],
   templateUrl: './desktop.component.html',
@@ -40,6 +42,10 @@ export class DesktopComponent {
       app2: {
         titleKey: 'pages.desktop.app2',
         appType: 'internet-explorer',
+      },
+      app3: {
+        titleKey: 'pages.desktop.app3',
+        appType: 'photo-viewer',
       },
     };
 

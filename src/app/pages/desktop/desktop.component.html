@@ -11,6 +11,12 @@
       iconSrc="/assets/images/explorer.png"
       (select)="openApp('app2')">
     </app-desktop-icon>
+
+    <app-desktop-icon
+      label="{{ 'pages.desktop.app3' | translate }}"
+      iconSrc="/assets/images/photo_viewer.png"
+      (select)="openApp('app3')">
+    </app-desktop-icon>
   </div>
 
   <div class="desktop-windows">
@@ -40,6 +46,9 @@
               }
               @case ('internet-explorer') {
                 <app-internet-explorer-app />
+              }
+              @case ('photo-viewer') {
+                <app-photo-viewer-app />
               }
               @default {
                 <p class="desktop-window__placeholder">{{ win.content }}</p>

@@ -1,0 +1,54 @@
+<div class="mv-app">
+  <header class="mv-toolbar">
+    <button type="button" class="mv-btn" (click)="backToGrid()">{{ 'pages.photoViewer.actions.gallery' | translate }}</button>
+    <button type="button" class="mv-btn" (click)="prev()">◀</button>
+    <button type="button" class="mv-btn" (click)="next()">▶</button>
+    <button type="button" class="mv-btn" (click)="zoomOut()">-</button>
+    <button type="button" class="mv-btn" (click)="zoomIn()">+</button>
+    <button type="button" class="mv-btn" (click)="fit()">{{ 'pages.photoViewer.actions.fit' | translate }}</button>
+  </header>
+
+  <div class="mv-main">
+    <aside class="mv-sidebar">
+      <h3>{{ 'pages.photoViewer.sidebar.projects' | translate }}</h3>
+      @for (project of projects; track project.id) {
+        <button
+          type="button"
+          class="mv-project"
+          [class.mv-project--active]="project.id === selectedProjectId"
+          (click)="selectProject(project.id)"
+        >
+          <span class="mv-project__name">{{ project.name }}</span>
+          <span class="mv-project__meta">{{ project.platform }}</span>
+        </button>
+      }
+    </aside>
+
+    <section class="mv-content">
+      @if (viewMode === 'grid') {
+        <div class="mv-grid">
+          @for (shot of selectedProject.shots; track shot.id; let i = $index) {
+            <button type="button" class="mv-thumb" (click)="openShot(i)">
+              <img [src]="shot.src" [alt]="shot.titleKey | translate" loading="lazy" />
+              <span>{{ shot.titleKey | translate }}</span>
+            </button>
+          }
+        </div>
+      } @else {
+        <div class="mv-viewer">
+          <img
+            class="mv-image"
+            [src]="selectedShot.src"
+            [alt]="selectedShot.titleKey | translate"
+            [style.transform]="'scale(' + zoom + ')'"
+          />
+          <div class="mv-caption">{{ selectedShot.titleKey | translate }}</div>
+        </div>
+      }
+    </section>
+  </div>
+
+  <footer class="mv-status">
+    {{ statusText }}
+  </footer>
+</div>
