@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule, DOCUMENT } from '@angular/common';
 import { TranslatePipe } from '@ngx-translate/core';
 import gsap from 'gsap';
@@ -8,21 +8,8 @@ import { WindowManagerService } from '../../core/services/window-manager.service
 import { MyPcAppComponent } from '../app-my-pc/my-pc-app.component';
 import { InternetExplorerAppComponent } from '../app-internet-explorer/internet-explorer-app.component';
 import { PhotoViewerAppComponent } from '../app-photo-viewer/photo-viewer-app.component';
-
-const DESKTOP_APPS = {
-  app1: {
-    titleKey: 'desktop.app1',
-    appType: 'my-pc',
-  },
-  app2: {
-    titleKey: 'desktop.app2',
-    appType: 'internet-explorer',
-  },
-  app3: {
-    titleKey: 'desktop.app3',
-    appType: 'photo-viewer',
-  },
-} as const;
+import { OpenWindowConfig } from '../../core/models/open-window-config.model';
+import { PortfolioDataService } from '../../core/services/portfolio-data.service';
 
 @Component({
   selector: 'app-desktop',
@@ -39,16 +26,26 @@ const DESKTOP_APPS = {
   templateUrl: './desktop.component.html',
   styleUrls: ['./desktop.component.scss'],
 })
-export class DesktopComponent {
+export class DesktopComponent implements OnInit {
   private readonly windowManager = inject(WindowManagerService);
+  private readonly portfolioDataService = inject(PortfolioDataService);
   private readonly document = inject(DOCUMENT);
 
   private readonly pendingOpenAnimations = new Set<string>();
+  private desktopApps: OpenWindowConfig[] = [];
 
   readonly windows = this.windowManager.windows;
 
+  ngOnInit(): void {
+    this.portfolioDataService.getDesktopApps().subscribe((apps) => {
+      this.desktopApps = apps;
+    });
+  }
+
   openApp(id: string): void {
-    const current = DESKTOP_APPS[id as keyof typeof DESKTOP_APPS] ?? DESKTOP_APPS.app1;
+    const current = this.desktopApps.find((app) => app.id === id);
+    if (!current) return;
+
     const existingWindow = this.windows().find((win) => win.id === id);
     const shouldAnimateIn = !existingWindow || existingWindow.state === 'minimized';
 
@@ -60,6 +57,7 @@ export class DesktopComponent {
       id,
       titleKey: current.titleKey,
       appType: current.appType,
+      iconSrc: current.iconSrc,
       content: '',
     });
 
@@ -137,9 +135,7 @@ export class DesktopComponent {
     this.windowManager.focusWindow(id);
   }
 
-  onStart(): void {
-    // Placeholder para menu Start
-  }
+  onStart(): void {}
 
   isPendingOpenAnimation(id: string): boolean {
     return this.pendingOpenAnimations.has(id);

@@ -1,9 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, OnInit, inject } from '@angular/core';
 import { TranslatePipe } from '@ngx-translate/core';
 import { MobileProject } from '../../core/models/mobile-project.model';
 import { MobileShot } from '../../core/models/mobile-shot.model';
 import { ProjectStatusLabelPipe } from '../../core/pipes/project-status-label.pipe';
+import { PortfolioDataService } from '../../core/services/portfolio-data.service';
 
 @Component({
   selector: 'app-photo-viewer-app',
@@ -12,51 +13,37 @@ import { ProjectStatusLabelPipe } from '../../core/pipes/project-status-label.pi
   templateUrl: './photo-viewer-app.component.html',
   styleUrls: ['./photo-viewer-app.component.scss'],
 })
-export class PhotoViewerAppComponent {
-  readonly projects: MobileProject[] = [
-    {
-      id: 'app-1',
-      name: 'Spotify2',
-      platform: 'Android',
-      status: 'online',
-      description: 'photoViewer.projects.spotify',
-      shots: [
-        { id: 'a1', titleKey: 'photoViewer.shots.home', src: '/assets/images/mobile/Spotify1.jpg', width: 1080, height: 2340 },
-        { id: 'a2', titleKey: 'photoViewer.shots.songs', src: '/assets/images/mobile/Spotify2.jpg', width: 1080, height: 2340 },
-        { id: 'a3', titleKey: 'photoViewer.shots.player', src: '/assets/images/mobile/Spotify3.jpg', width: 1080, height: 2340 },
-        { id: 'a4', titleKey: 'photoViewer.shots.account', src: '/assets/images/mobile/Spotify4.jpg', width: 1080, height: 2340 },
-        { id: 'a5', titleKey: 'photoViewer.shots.splash', src: '/assets/images/mobile/Spotify5.jpg', width: 1080, height: 2340 },
-        { id: 'a6', titleKey: 'photoViewer.shots.register', src: '/assets/images/mobile/Spotify6.jpg', width: 1080, height: 2340 },
-        { id: 'a7', titleKey: 'photoViewer.shots.login', src: '/assets/images/mobile/Spotify7.jpg', width: 1080, height: 2340 },
-      ],
-    },
-    {
-      id: 'app-2',
-      name: 'Eventvs Merida',
-      platform: 'Android',
-      status: 'wip',
-      description: 'photoViewer.projects.eventvs',
-      shots: [
-        { id: 'b1', titleKey: 'photoViewer.shots.splash', src: '/assets/images/mobile/Eventvs1.jpg', width: 1080, height: 2340 },
-        { id: 'b2', titleKey: 'photoViewer.shots.home', src: '/assets/images/mobile/Eventvs2.jpg', width: 1080, height: 2340 },
-        { id: 'b3', titleKey: 'photoViewer.shots.details', src: '/assets/images/mobile/Eventvs3.jpg', width: 1080, height: 2340 },
-        { id: 'b4', titleKey: 'photoViewer.shots.map', src: '/assets/images/mobile/Eventvs4.jpg', width: 1080, height: 2340 },
-        { id: 'b5', titleKey: 'photoViewer.shots.calendar', src: '/assets/images/mobile/Eventvs5.jpg', width: 1080, height: 2340 },
-        { id: 'b6', titleKey: 'photoViewer.shots.profile', src: '/assets/images/mobile/Eventvs6.jpg', width: 1080, height: 2340 },
-        { id: 'b7', titleKey: 'photoViewer.shots.account', src: '/assets/images/mobile/Eventvs7.jpg', width: 1080, height: 2340 },
-        { id: 'b8', titleKey: 'photoViewer.shots.events', src: '/assets/images/mobile/Eventvs8.jpg', width: 1080, height: 2340 },
-        { id: 'b9', titleKey: 'photoViewer.shots.login', src: '/assets/images/mobile/Eventvs9.jpg', width: 1080, height: 2340 },
-        { id: 'b10', titleKey: 'photoViewer.shots.register', src: '/assets/images/mobile/Eventvs10.jpg', width: 1080, height: 2340 },
-      ],
-    },
-  ];
+export class PhotoViewerAppComponent implements OnInit {
+  private readonly portfolioDataService = inject(PortfolioDataService);
 
-  selectedProjectId = this.projects[0].id;
+  projects: MobileProject[] = [];
+  selectedProjectId = '';
   selectedShotIndex = 0;
   zoom = 1;
 
+  ngOnInit(): void {
+    this.portfolioDataService.getMobileProjects().subscribe((projects) => {
+      this.projects = projects;
+      
+      if (projects.length > 0) {
+        this.selectedProjectId = projects[0].id;
+        this.selectedShotIndex = 0;
+        this.zoom = 1;
+      }
+    });
+  }
+
   get selectedProject(): MobileProject {
-    return this.projects.find((project) => project.id === this.selectedProjectId) ?? this.projects[0];
+    return (
+      this.projects.find((project) => project.id === this.selectedProjectId) ?? {
+        id: '',
+        name: '',
+        platform: 'Android',
+        status: 'wip',
+        description: '',
+        shots: [{ id: '', titleKey: '', src: '/assets/previews/placeholder.webp', width: 0, height: 0 }],
+      }
+    );
   }
 
   get selectedShot(): MobileShot {

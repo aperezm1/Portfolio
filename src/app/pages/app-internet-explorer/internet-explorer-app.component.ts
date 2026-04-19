@@ -1,8 +1,9 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { TranslatePipe } from '@ngx-translate/core';
 import { ExplorerProject } from '../../core/models/explorer-project.model';
 import { ProjectStatusLabelPipe } from '../../core/pipes/project-status-label.pipe';
+import { PortfolioDataService } from '../../core/services/portfolio-data.service';
 
 @Component({
   selector: 'app-internet-explorer-app',
@@ -11,45 +12,38 @@ import { ProjectStatusLabelPipe } from '../../core/pipes/project-status-label.pi
   templateUrl: './internet-explorer-app.component.html',
   styleUrls: ['./internet-explorer-app.component.scss'],
 })
-export class InternetExplorerAppComponent {
-  readonly projects: ExplorerProject[] = [
-    {
-      id: 'project1',
-      titleKey: 'internetExplorer.projects.project1.title',
-      summaryKey: 'internetExplorer.projects.project1.summary',
-      status: 'online',
-      deployUrl: 'https://the-witcher-web.vercel.app/',
-      repoUrl: 'https://github.com/dmunozc04-albarregas/videojuego',
-      stack: ['HTML', 'CSS', 'JS'],
-    },
-    {
-      id: 'project2',
-      titleKey: 'internetExplorer.projects.project2.title',
-      summaryKey: 'internetExplorer.projects.project2.summary',
-      status: 'online',
-      deployUrl: 'https://primer-proyecto-angular-apm.vercel.app/',
-      repoUrl: 'https://github.com/aperezm1/Primer-Proyecto-Angular',
-      stack: ['Angular', 'TypeScript', 'SCSS'],
-    },
-    {
-      id: 'project3',
-      titleKey: 'internetExplorer.projects.project3.title',
-      summaryKey: 'internetExplorer.projects.project3.summary',
-      status: 'wip',
-      deployUrl: 'https://portfolio-xp-apm.vercel.app/',
-      repoUrl: 'https://github.com/aperezm1/Portfolio',
-      stack: ['Angular', 'TypeScript', 'SCSS'],
-    },
-  ];
+export class InternetExplorerAppComponent implements OnInit {
+  private readonly portfolioDataService = inject(PortfolioDataService);
 
-  selectedProjectId = this.projects[0].id;
+  projects: ExplorerProject[] = [];
+  selectedProjectId = '';
   statusMessageKey = 'internetExplorer.status.ready';
 
+  ngOnInit(): void {
+    this.portfolioDataService.getExplorerProjects().subscribe((projects) => {
+      this.projects = projects;
+      
+      if (projects.length > 0) {
+        this.selectedProjectId = projects[0].id;
+      }
+    });
+  }
+
   get selectedProject(): ExplorerProject {
-    return this.projects.find((p) => p.id === this.selectedProjectId) ?? this.projects[0];
+    return (
+      this.projects.find((p) => p.id === this.selectedProjectId) ?? {
+        id: '',
+        titleKey: '',
+        summaryKey: '',
+        status: 'wip',
+        deployUrl: '',
+        stack: [],
+      }
+    );
   }
 
   get selectedProjectPreviewPath(): string {
+    if (!this.selectedProject.id) return '/assets/previews/placeholder.webp';
     return `/assets/images/webs/${this.selectedProject.id}.png`;
   }
 
