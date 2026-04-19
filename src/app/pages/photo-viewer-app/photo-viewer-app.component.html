@@ -1,54 +1,111 @@
-<div class="mv-app">
-  <header class="mv-toolbar">
-    <button type="button" class="mv-btn" (click)="backToGrid()">{{ 'pages.photoViewer.actions.gallery' | translate }}</button>
-    <button type="button" class="mv-btn" (click)="prev()">◀</button>
-    <button type="button" class="mv-btn" (click)="next()">▶</button>
-    <button type="button" class="mv-btn" (click)="zoomOut()">-</button>
-    <button type="button" class="mv-btn" (click)="zoomIn()">+</button>
-    <button type="button" class="mv-btn" (click)="fit()">{{ 'pages.photoViewer.actions.fit' | translate }}</button>
+<div class="pv-app">
+  <header class="pv-titlebar">
+    <div class="pv-titlebar__left">
+      <span class="pv-app-icon" aria-hidden="true">◻</span>
+      <div class="pv-titlebar__text">
+        <strong>Mobile Photo Viewer</strong>
+        <span>{{ selectedProject.name }} - {{ selectedProject.platform }}</span>
+      </div>
+    </div>
+
+    <div class="pv-titlebar__actions">
+      <button type="button" class="pv-icon-btn" (click)="backToGrid()">Gallery</button>
+      <button type="button" class="pv-icon-btn" (click)="prev()">◀</button>
+      <button type="button" class="pv-icon-btn" (click)="next()">▶</button>
+      <button type="button" class="pv-icon-btn" (click)="zoomOut()">-</button>
+      <button type="button" class="pv-icon-btn" (click)="zoomIn()">+</button>
+      <button type="button" class="pv-icon-btn" (click)="fit()">Fit</button>
+    </div>
   </header>
 
-  <div class="mv-main">
-    <aside class="mv-sidebar">
-      <h3>{{ 'pages.photoViewer.sidebar.projects' | translate }}</h3>
-      @for (project of projects; track project.id) {
-        <button
-          type="button"
-          class="mv-project"
-          [class.mv-project--active]="project.id === selectedProjectId"
-          (click)="selectProject(project.id)"
-        >
-          <span class="mv-project__name">{{ project.name }}</span>
-          <span class="mv-project__meta">{{ project.platform }}</span>
-        </button>
-      }
-    </aside>
+  <div class="pv-body">
+    <aside class="pv-tasks">
+      <section class="pv-card">
+        <h3>Picture Tasks</h3>
+        <button type="button" class="pv-task" (click)="backToGrid()">View thumbnails</button>
+        <button type="button" class="pv-task" (click)="fit()">Best fit</button>
+        <button type="button" class="pv-task" (click)="zoomIn()">Zoom in</button>
+        <button type="button" class="pv-task" (click)="zoomOut()">Zoom out</button>
+      </section>
 
-    <section class="mv-content">
-      @if (viewMode === 'grid') {
-        <div class="mv-grid">
+      <section class="pv-card">
+        <h3>Project</h3>
+        <div class="pv-meta">
+          <span>{{ selectedProject.name }}</span>
+          <span>{{ selectedProject.platform }}</span>
+        </div>
+        <p class="pv-help">
+          Viewer pensado para mostrar capturas de apps móviles con navegación rápida, zoom y miniaturas.
+        </p>
+      </section>
+
+      <section class="pv-card">
+        <h3>Shots</h3>
+        <div class="pv-mini-list">
           @for (shot of selectedProject.shots; track shot.id; let i = $index) {
-            <button type="button" class="mv-thumb" (click)="openShot(i)">
-              <img [src]="shot.src" [alt]="shot.titleKey | translate" loading="lazy" />
+            <button
+              type="button"
+              class="pv-mini-item"
+              [class.pv-mini-item--active]="i === selectedShotIndex && viewMode === 'viewer'"
+              (click)="openShot(i)"
+            >
               <span>{{ shot.titleKey | translate }}</span>
             </button>
           }
         </div>
-      } @else {
-        <div class="mv-viewer">
-          <img
-            class="mv-image"
-            [src]="selectedShot.src"
-            [alt]="selectedShot.titleKey | translate"
-            [style.transform]="'scale(' + zoom + ')'"
-          />
-          <div class="mv-caption">{{ selectedShot.titleKey | translate }}</div>
-        </div>
-      }
-    </section>
+      </section>
+    </aside>
+
+    <main class="pv-viewer-panel">
+      <section class="pv-viewer-shell">
+        @if (viewMode === 'grid') {
+          <div class="pv-gallery">
+            @for (shot of selectedProject.shots; track shot.id; let i = $index) {
+              <button type="button" class="pv-thumb" (click)="openShot(i)">
+                <div class="pv-thumb__frame">
+                  <img [src]="shot.src" [alt]="shot.titleKey | translate" loading="lazy" />
+                </div>
+                <span class="pv-thumb__title">{{ shot.titleKey | translate }}</span>
+                <span class="pv-thumb__size">{{ shot.width }} x {{ shot.height }}</span>
+              </button>
+            }
+          </div>
+        } @else {
+          <div class="pv-stage">
+            <div class="pv-stage__image-wrap">
+              <img
+                class="pv-stage__image"
+                [src]="selectedShot.src"
+                [alt]="selectedShot.titleKey | translate"
+                [style.transform]="'scale(' + zoom + ')'"
+              />
+            </div>
+
+            <div class="pv-stage__caption">
+              <strong>{{ selectedShot.titleKey | translate }}</strong>
+              <span>{{ selectedProject.name }} · {{ selectedProject.platform }}</span>
+            </div>
+          </div>
+        }
+      </section>
+
+      <footer class="pv-filmstrip">
+        @for (shot of selectedProject.shots; track shot.id; let i = $index) {
+          <button
+            type="button"
+            class="pv-filmstrip__item"
+            [class.pv-filmstrip__item--active]="i === selectedShotIndex"
+            (click)="openShot(i)"
+          >
+            <img [src]="shot.src" [alt]="shot.titleKey | translate" loading="lazy" />
+          </button>
+        }
+      </footer>
+    </main>
   </div>
 
-  <footer class="mv-status">
-    {{ statusText }}
+  <footer class="pv-statusbar">
+    <span>{{ statusText }}</span>
+    <span>{{ viewMode === 'grid' ? 'Gallery mode' : 'Viewer mode' }}</span>
   </footer>
 </div>

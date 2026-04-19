@@ -49,7 +49,7 @@ export class InternetExplorerAppComponent {
   }
 
   get selectedProjectPreviewPath(): string {
-    return `/assets/images/${this.selectedProject.id}.png`;
+    return `/assets/images/webs/${this.selectedProject.id}.png`;
   }
 
   selectProject(projectId: string): void {

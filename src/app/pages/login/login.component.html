@@ -4,7 +4,7 @@
 
   <div class="login-shell">
     <div class="login-shell__left">
-      <img class="xp-mark" src="assets/images/logo_xp.png" [attr.alt]="'common.logoAlt' | translate" />
+      <img class="xp-mark" src="assets/images/system/logo_xp.png" [attr.alt]="'common.logoAlt' | translate" />
       <p class="brand-line">{{ "app.name" | translate }}</p>
       <p class="left-hint">{{ "pages.login.leftHint" | translate }}</p>
     </div>
@@ -15,7 +15,7 @@
       @if (state !== "welcome") {
       <div class="login-form-shell">
         <div class="xp-user-row">
-          <img class="xp-avatar" src="assets/images/avatar_xp.jpg" [attr.alt]="'common.avatarAlt' | translate" />
+          <img class="xp-avatar" src="assets/images/system/avatar_xp.jpg" [attr.alt]="'common.avatarAlt' | translate" />
 
           <div class="xp-user-panel">
             <p class="xp-username">
@@ -58,7 +58,7 @@
 
       @if (state === "welcome") {
       <div class="welcome-shell">
-        <img class="xp-avatar" src="assets/images/avatar_xp.jpg" [attr.alt]="'common.avatarAlt' | translate" />
+        <img class="xp-avatar" src="assets/images/system/avatar_xp.jpg" [attr.alt]="'common.avatarAlt' | translate" />
         <p>{{ "pages.login.welcomeMessage" | translate: { name: displayName } | titlecase}}</p>
       </div>
       }

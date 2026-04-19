@@ -43,11 +43,11 @@ h4 {
 }
 
 html, body, *:not(input):not(textarea):not(select):not(button):not(a):not([contenteditable="true"]) {
-  cursor: url("assets/images/xp-arrow.cur"), auto;
+  cursor: url("assets/images/system/xp-arrow.cur"), auto;
 }
 
 input, textarea, select, [contenteditable="true"] {
-  cursor: url("assets/images/xp-ibeam.cur"), text !important;
+  cursor: url("assets/images/system/xp-ibeam.cur"), text !important;
 }
 
 button, button *,
@@ -57,5 +57,5 @@ a[href], a[href] *,
 input[type="button"], input[type="submit"],
 .mat-button, .mat-button *,
 .mat-icon-button, .mat-icon-button * {
-  cursor: url("assets/images/xp-hand.cur"), pointer !important;
+  cursor: url("assets/images/system/xp-hand.cur"), pointer !important;
 }

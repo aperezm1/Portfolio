@@ -4,5 +4,4 @@ export interface MobileShot {
   src: string;
   width: number;
   height: number;
-  tag: 'login' | 'home' | 'detail' | 'checkout' | 'profile';
 }
