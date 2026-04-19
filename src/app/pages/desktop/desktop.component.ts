@@ -5,9 +5,9 @@ import gsap from 'gsap';
 import { DesktopIconComponent } from '../../components/desktop-icon/desktop-icon.component';
 import { XpTaskbarComponent } from '../../components/xp-taskbar/xp-taskbar.component';
 import { WindowManagerService } from '../../core/services/window-manager.service';
-import { MyPcAppComponent } from '../my-pc-app/my-pc-app.component';
-import { InternetExplorerAppComponent } from '../internet-explorer-app/internet-explorer-app.component';
-import { PhotoViewerAppComponent } from '../photo-viewer-app/photo-viewer-app.component';
+import { MyPcAppComponent } from '../app-my-pc/my-pc-app.component';
+import { InternetExplorerAppComponent } from '../app-internet-explorer/internet-explorer-app.component';
+import { PhotoViewerAppComponent } from '../app-photo-viewer/photo-viewer-app.component';
 
 @Component({
   selector: 'app-desktop',

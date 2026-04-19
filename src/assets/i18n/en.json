@@ -7,20 +7,25 @@
     "avatarAlt": "Profile avatar",
     "actions": {
       "clickToStart": "click to start",
-      "start": "Start"
+      "start": "Start",
+      "help": "Help",
+      "language": "Language"
     },
     "status": {
-      "loading": "Loading..."
+      "loading": "Loading...",
+      "time": "Current time"
     },
     "validation": {
       "required": "This field is required",
       "minName": "Enter at least 2 characters"
-    }
+    },
+    "projects" : "Projects",
+    "description": "Description",
+    "images": "Images"
   },
   "pages": {
     "login": {
       "leftHint": "To begin, enter your name",
-      "title": "Log on",
       "subtitle": "Type your name to enter the desktop",
       "form": {
         "nameLabel": "Guest",
@@ -32,10 +37,9 @@
       "footerRight": "After logon you can continue to the desktop"
     },
     "desktop": {
-      "personalWelcome": "Signed in as {{name}}",
       "app1": "My PC",
       "app2": "Internet Explorer",
-      "placeholder": "Application under construction. Real content will be added soon."
+      "app3": "Picture and Fax Viewer"
     },
     "myPc": {
       "sidebar": {
@@ -76,9 +80,6 @@
         "address": "Address",
         "go": "Go"
       },
-      "sidebar": {
-        "title": "Projects"
-      },
       "actions": {
         "openSite": "Open site",
         "viewCode": "View code"
@@ -110,19 +111,23 @@
       }
     },
     "photoViewer": {
-      "sidebar": {
-        "projects": "Projects"
-      },
-      "actions": {
-        "gallery": "Gallery",
-        "fit": "Best Fit"
+      "projects": {
+        "spotify": "This project is an Android application inspired by Spotify, offering a personalized music experience, allowing users to register, log in, explore songs, artists and playlists, as well as manage their profile (including profile picture from the camera). The project integrates Firebase (Firestore), Supabase Storage and the Deezer API. It is oriented as an educational project.",
+        "eventvs": "Mobile application that centralizes all cultural and leisure information of Mérida in a single digital space. It allows users to discover events, places of interest, restaurants and more, with an intuitive and easy-to-use interface. The project is under development, with the intention of offering a complete and attractive experience for residents and visitors of Mérida. It is oriented as a TFG project."
       },
       "shots": {
         "login": "Login screen",
+        "register": "Register screen",
         "home": "Home screen",
-        "detail": "Detail screen",
-        "checkout": "Checkout screen",
-        "profile": "Profile screen"
+        "profile": "Profile screen",
+        "splash": "Splash screen",
+        "songs": "Songs screen",
+        "player": "Player screen",
+        "map": "Map screen",
+        "calendar": "Calendar screen",
+        "events": "Saved events screen",
+        "account": "Account screen",
+        "details": "Event details screen"
       }
     }
   }

@@ -7,20 +7,25 @@
     "avatarAlt": "Avatar de perfil",
     "actions": {
       "clickToStart": "haz clic para iniciar",
-      "start": "Inicio"
+      "start": "Inicio",
+      "help": "Ayuda",
+      "language": "Idioma"
     },
     "status": {
-      "loading": "Cargando..."
+      "loading": "Cargando...",
+      "time": "Hora actual"
     },
     "validation": {
       "required": "Este campo es obligatorio",
       "minName": "Introduce al menos 2 caracteres"
-    }
+    },
+    "projects" : "Proyectos",
+    "description": "Descripción",
+    "images": "Imágenes"
   },
   "pages": {
     "login": {
       "leftHint": "Para comenzar, introduce tu nombre",
-      "title": "Iniciar sesion",
       "subtitle": "Escribe tu nombre para entrar al escritorio",
       "form": {
         "nameLabel": "Invitado",
@@ -32,10 +37,9 @@
       "footerRight": "Despues de iniciar sesion podras acceder al escritorio"
     },
     "desktop": {
-      "personalWelcome": "Sesion iniciada como {{name}}",
       "app1": "Mi PC",
       "app2": "Internet Explorer",
-      "placeholder": "Aplicacion en construccion. Pronto habra contenido real aqui."
+      "app3": "Visor de fotos y fax"
     },
     "myPc": {
       "sidebar": {
@@ -76,9 +80,6 @@
         "address": "Dirección",
         "go": "Ir"
       },
-      "sidebar": {
-        "title": "Proyectos"
-      },
       "actions": {
         "openSite": "Abrir sitio",
         "viewCode": "Ver código"
@@ -110,19 +111,23 @@
       }
     },
     "photoViewer": {
-      "sidebar": {
-        "projects": "Proyectos"
-      },
-      "actions": {
-        "gallery": "Galería",
-        "fit": "Ajustar"
+      "projects": {
+        "spotify": "Este proyecto es una aplicación Android inspirada en Spotify, que ofrece una experiencia musical personalizada, permitiendo a los usuarios registrarse, iniciar sesión, explorar canciones, artistas y playlists, así como gestionar su perfil (incluyendo la foto de perfil desde la cámara). El proyecto integra Firebase (Firestore), Supabase Storage y la API de Deezer. Está orientado como proyecto educativo.",
+        "eventvs": "Aplicación móvil que centraliza toda la información cultural y de ocio de Mérida en un solo espacio digital. Permite a los usuarios descubrir eventos, lugares de interés, restaurantes y más, con una interfaz intuitiva y fácil de usar. El proyecto está en desarrollo, con la intención de ofrecer una experiencia completa y atractiva para residentes y visitantes de Mérida. Está orientado como proyecto TFG."
       },
       "shots": {
         "login": "Pantalla de login",
+        "register": "Pantalla de registro",
         "home": "Pantalla principal",
-        "detail": "Pantalla de detalle",
-        "checkout": "Pantalla de checkout",
-        "profile": "Pantalla de perfil"
+        "profile": "Pantalla de perfil",
+        "splash": "Pantalla de bienvenida",
+        "songs": "Pantalla de canciones",
+        "player": "Pantalla de reproductor",
+        "map": "Pantalla de mapa",
+        "calendar": "Pantalla de calendario",
+        "events": "Pantalla de eventos guardados",
+        "account": "Pantalla de cuenta",
+        "details": "Pantalla de detalles de eventos"
       }
     }
   }
