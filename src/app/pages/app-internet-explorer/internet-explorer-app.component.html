@@ -1,20 +1,20 @@
 <div class="ie-app">
   <div class="ie-toolbar">
-    <button type="button" class="ie-tool-btn ie-tool-btn--icon" title="{{ 'pages.internetExplorer.toolbar.back' | translate }}">
-      <span aria-hidden="true">◀</span>
+    <button type="button" class="ie-tool-btn ie-tool-btn--icon" title="{{ 'internetExplorer.toolbar.back' | translate }}">
+      <span aria-hidden="true">&#9664;</span>
     </button>
-    <button type="button" class="ie-tool-btn ie-tool-btn--icon" title="{{ 'pages.internetExplorer.toolbar.forward' | translate }}">
-      <span aria-hidden="true">▶</span>
+    <button type="button" class="ie-tool-btn ie-tool-btn--icon" title="{{ 'internetExplorer.toolbar.forward' | translate }}">
+      <span aria-hidden="true">&#9654;</span>
     </button>
-    <button type="button" class="ie-tool-btn ie-tool-btn--icon" title="{{ 'pages.internetExplorer.toolbar.refresh' | translate }}">
-      <span aria-hidden="true">↻</span>
+    <button type="button" class="ie-tool-btn ie-tool-btn--icon" title="{{ 'internetExplorer.toolbar.refresh' | translate }}">
+      <span aria-hidden="true">&#8635;</span>
     </button>
-    <button type="button" class="ie-tool-btn ie-tool-btn--icon" title="{{ 'pages.internetExplorer.toolbar.home' | translate }}">
-      <span aria-hidden="true">⌂</span>
+    <button type="button" class="ie-tool-btn ie-tool-btn--icon" title="{{ 'internetExplorer.toolbar.home' | translate }}">
+      <span aria-hidden="true">&#8962;</span>
     </button>
 
     <div class="ie-address-wrap">
-      <label>{{ 'pages.internetExplorer.toolbar.address' | translate }}</label>
+      <label>{{ 'internetExplorer.toolbar.address' | translate }}</label>
       <input [value]="selectedProject.deployUrl" readonly />
       <a
         class="ie-go-btn"
@@ -25,7 +25,7 @@
         (mouseleave)="onLeaveAction()"
         (click)="onOpenLink()"
       >
-        {{ 'pages.internetExplorer.toolbar.go' | translate }}
+        {{ 'internetExplorer.toolbar.go' | translate }}
       </a>
     </div>
   </div>
@@ -50,7 +50,7 @@
       <div class="ie-project-header">
         <h2>{{ selectedProject.titleKey | translate }}</h2>
         <span class="ie-status" [class.ie-status--wip]="selectedProject.status === 'wip'">
-          {{ ('pages.internetExplorer.labels.' + selectedProject.status) | translate }}
+          {{ selectedProject.status | projectStatusLabel | translate }}
         </span>
       </div>
 
@@ -72,7 +72,7 @@
           (mouseleave)="onLeaveAction()"
           (click)="onOpenLink()"
         >
-          {{ 'pages.internetExplorer.actions.openSite' | translate }}
+          {{ 'internetExplorer.actions.openSite' | translate }}
         </a>
 
         @if (selectedProject.repoUrl) {
@@ -84,7 +84,7 @@
             (mouseenter)="onHoverRepo()"
             (mouseleave)="onLeaveAction()"
           >
-            {{ 'pages.internetExplorer.actions.viewCode' | translate }}
+            {{ 'internetExplorer.actions.viewCode' | translate }}
           </a>
         }
       </div>

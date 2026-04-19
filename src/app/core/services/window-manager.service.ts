@@ -78,23 +78,6 @@ export class WindowManagerService {
     this.activateTopOpenWindow();
   }
 
-  toggleFromTaskbar(id: string): void {
-    const win = this.windows().find((w) => w.id === id);
-    if (!win) return;
-
-    if (win.state === 'minimized') {
-      this.restoreWindow(id);
-      return;
-    }
-
-    if (win.active) {
-      this.minimizeWindow(id);
-      return;
-    }
-
-    this.focusWindow(id);
-  }
-
   private activateTopOpenWindow(): void {
     const openWindows = this.windows().filter((w) => w.state === 'open');
     if (openWindows.length === 0) return;

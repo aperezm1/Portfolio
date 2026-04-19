@@ -51,15 +51,11 @@ export class LoginComponent implements AfterViewInit {
   submitName(): void {
     if (this.state !== 'form') return;
 
-    const normalizedName = this.nameControl.value.trim().replace(/\s+/g, ' ');
-    if (!normalizedName) {
-      this.nameControl.setErrors({ required: true });
-      this.nameControl.markAsTouched();
-      return;
-    }
+    const normalizedName = this.normalizeName(this.nameControl.value);
+    const validationError = this.getValidationError(normalizedName);
 
-    if (normalizedName.length < 2) {
-      this.nameControl.setErrors({ minlength: true });
+    if (validationError) {
+      this.nameControl.setErrors(validationError);
       this.nameControl.markAsTouched();
       return;
     }
@@ -93,5 +89,21 @@ export class LoginComponent implements AfterViewInit {
           );
       }, 0);
     });
+  }
+
+  private normalizeName(value: string): string {
+    return value.trim().replace(/\s+/g, ' ');
+  }
+
+  private getValidationError(name: string): { required?: true; minlength?: true } | null {
+    if (!name) {
+      return { required: true };
+    }
+
+    if (name.length < 2) {
+      return { minlength: true };
+    }
+
+    return null;
   }
 }

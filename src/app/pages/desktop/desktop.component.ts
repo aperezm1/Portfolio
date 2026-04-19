@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule, DOCUMENT } from '@angular/common';
-import { TranslatePipe, TranslateService } from '@ngx-translate/core';
+import { TranslatePipe } from '@ngx-translate/core';
 import gsap from 'gsap';
 import { DesktopIconComponent } from '../../components/desktop-icon/desktop-icon.component';
 import { XpTaskbarComponent } from '../../components/xp-taskbar/xp-taskbar.component';
@@ -8,6 +8,21 @@ import { WindowManagerService } from '../../core/services/window-manager.service
 import { MyPcAppComponent } from '../app-my-pc/my-pc-app.component';
 import { InternetExplorerAppComponent } from '../app-internet-explorer/internet-explorer-app.component';
 import { PhotoViewerAppComponent } from '../app-photo-viewer/photo-viewer-app.component';
+
+const DESKTOP_APPS = {
+  app1: {
+    titleKey: 'desktop.app1',
+    appType: 'my-pc',
+  },
+  app2: {
+    titleKey: 'desktop.app2',
+    appType: 'internet-explorer',
+  },
+  app3: {
+    titleKey: 'desktop.app3',
+    appType: 'photo-viewer',
+  },
+} as const;
 
 @Component({
   selector: 'app-desktop',
@@ -26,7 +41,6 @@ import { PhotoViewerAppComponent } from '../app-photo-viewer/photo-viewer-app.co
 })
 export class DesktopComponent {
   private readonly windowManager = inject(WindowManagerService);
-  private readonly translate = inject(TranslateService);
   private readonly document = inject(DOCUMENT);
 
   private readonly pendingOpenAnimations = new Set<string>();
@@ -34,22 +48,7 @@ export class DesktopComponent {
   readonly windows = this.windowManager.windows;
 
   openApp(id: string): void {
-    const appConfig: Record<string, { titleKey: string; appType: string; contentKey?: string }> = {
-      app1: {
-        titleKey: 'pages.desktop.app1',
-        appType: 'my-pc',
-      },
-      app2: {
-        titleKey: 'pages.desktop.app2',
-        appType: 'internet-explorer',
-      },
-      app3: {
-        titleKey: 'pages.desktop.app3',
-        appType: 'photo-viewer',
-      },
-    };
-
-    const current = appConfig[id] ?? appConfig['app1'];
+    const current = DESKTOP_APPS[id as keyof typeof DESKTOP_APPS] ?? DESKTOP_APPS.app1;
     const existingWindow = this.windows().find((win) => win.id === id);
     const shouldAnimateIn = !existingWindow || existingWindow.state === 'minimized';
 
@@ -61,7 +60,7 @@ export class DesktopComponent {
       id,
       titleKey: current.titleKey,
       appType: current.appType,
-      content: current.contentKey ? this.translate.instant(current.contentKey) : '',
+      content: '',
     });
 
     if (shouldAnimateIn) {

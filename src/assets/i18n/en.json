@@ -19,116 +19,114 @@
       "required": "This field is required",
       "minName": "Enter at least 2 characters"
     },
-    "projects" : "Projects",
+    "projects": "Projects",
     "description": "Description",
-    "images": "Images"
+    "images": "Images",
+    "projectStatus": {
+      "online": "Online",
+      "wip": "WIP"
+    }
   },
-  "pages": {
-    "login": {
-      "leftHint": "To begin, enter your name",
-      "subtitle": "Type your name to enter the desktop",
-      "form": {
-        "nameLabel": "Guest",
-        "namePlaceholder": "Your name",
-        "submit": "Enter"
-      },
-      "welcomeMessage": "Welcome, {{name}}",
-      "footerLeft": "Turn off computer",
-      "footerRight": "After logon you can continue to the desktop"
+  "login": {
+    "leftHint": "To begin, enter your name",
+    "subtitle": "Type your name to enter the desktop",
+    "form": {
+      "nameLabel": "Guest",
+      "namePlaceholder": "Your name",
+      "submit": "Enter"
     },
-    "desktop": {
-      "app1": "My PC",
-      "app2": "Internet Explorer",
-      "app3": "Picture and Fax Viewer"
+    "welcomeMessage": "Welcome, {{name}}",
+    "footerLeft": "Turn off computer",
+    "footerRight": "After logon you can continue to the desktop"
+  },
+  "desktop": {
+    "app1": "My PC",
+    "app2": "Internet Explorer",
+    "app3": "Picture and Fax Viewer"
+  },
+  "myPc": {
+    "sidebar": {
+      "title": "System tasks",
+      "systemInfo": "View system information",
+      "skills": "View core skills",
+      "contact": "Contact options"
     },
-    "myPc": {
-      "sidebar": {
-        "title": "System tasks",
-        "systemInfo": "View system information",
-        "skills": "View core skills",
-        "contact": "Contact options"
+    "links": {
+      "title": "Quick links",
+      "github": "Open GitHub",
+      "linkedin": "Open LinkedIn",
+      "cv": "Download resume"
+    },
+    "profile": {
+      "title": "Professional profile",
+      "roleValue": "Multiplatform Developer",
+      "bio": "Student of Multiplatform Application Development (DAM) with a proactive and hardworking profile; creative and team-oriented, with strong planning skills and high flexibility and adaptability to take on new challenges and changing environments.",
+      "detailsTitle": "Basic details",
+      "locationLabel": "Location",
+      "locationValue": "Madrid, Spain",
+      "emailLabel": "Email",
+      "focusLabel": "Specialization",
+      "birthLabel": "Date of birth",
+      "birthValue": "2000/07/03",
+      "phoneLabel": "Phone"
+    },
+    "skills": {
+      "title": "Main stack"
+    }
+  },
+  "internetExplorer": {
+    "toolbar": {
+      "back": "Back",
+      "forward": "Forward",
+      "refresh": "Refresh",
+      "home": "Home",
+      "address": "Address",
+      "go": "Go"
+    },
+    "actions": {
+      "openSite": "Open site",
+      "viewCode": "View code"
+    },
+    "status": {
+      "ready": "Done",
+      "opening": "Opening project...",
+      "hoverOpen": "Open deployment",
+      "hoverRepo": "Open repository",
+      "projectSelected": "Project selected"
+    },
+    "projects": {
+      "project1": {
+        "title": "The Witcher Web",
+        "summary": "A simple browser videogame inspired by The Witcher universe - small gameplay loop, sprite-based graphics and basic state management."
       },
-      "links": {
-        "title": "Quick links",
-        "github": "Open GitHub",
-        "linkedin": "Open LinkedIn",
-        "cv": "Download resume"
+      "project2": {
+        "title": "First Angular project",
+        "summary": "A compact tutorial SPA to learn Angular fundamentals: components, routing, forms and basic HTTP integration."
       },
-      "profile": {
-        "title": "Professional profile",
-        "roleValue": "Multiplatform Developer",
-        "bio": "Student of Multiplatform Application Development (DAM) with a proactive and hardworking profile; creative and team-oriented, with strong planning skills and high flexibility and adaptability to take on new challenges and changing environments.",
-        "detailsTitle": "Basic details",
-        "locationLabel": "Location",
-        "locationValue": "Madrid, Spain",
-        "emailLabel": "Email",
-        "focusLabel": "Specialization",
-        "birthLabel": "Date of birth",
-        "birthValue": "2000/07/03",
-        "phoneLabel": "Phone"
-      },
-      "skills": {
-        "title": "Main stack"
+      "project3": {
+        "title": "Portfolio",
+        "summary": "A Windows XP style personal portfolio showcasing projects, skills and resume, with multilingual support and lightweight UI polish."
       }
+    }
+  },
+  "photoViewer": {
+    "projects": {
+      "spotify": "Android app inspired by Spotify with register, login, songs, playlists and profile. It integrates Firebase, Supabase Storage and Deezer API.",
+      "eventvs": "Mobile app to discover culture and leisure in Merida with events, map, calendar and useful places. Work in progress project for final degree work."
     },
-    "internetExplorer": {
-      "toolbar": {
-        "back": "Back",
-        "forward": "Forward",
-        "refresh": "Refresh",
-        "home": "Home",
-        "address": "Address",
-        "go": "Go"
-      },
-      "actions": {
-        "openSite": "Open site",
-        "viewCode": "View code"
-      },
-      "labels": {
-        "online": "Online",
-        "wip": "WIP"
-      },
-      "status": {
-        "ready": "Done",
-        "opening": "Opening project...",
-        "hoverOpen": "Open deployment",
-        "hoverRepo": "Open repository",
-        "projectSelected": "Project selected"
-      },
-      "projects": {
-        "project1": {
-          "title": "The Witcher Web",
-          "summary": "A simple browser videogame inspired by The Witcher universe — small gameplay loop, sprite-based graphics and basic state management."
-        },
-        "project2": {
-          "title": "First Angular project",
-          "summary": "A compact tutorial SPA to learn Angular fundamentals: components, routing, forms and basic HTTP integration."
-        },
-        "project3": {
-          "title": "Portfolio",
-          "summary": "A Windows XP–style personal portfolio showcasing projects, skills and résumé, with multilingual support and lightweight UI polish."
-        }
-      }
-    },
-    "photoViewer": {
-      "projects": {
-        "spotify": "This project is an Android application inspired by Spotify, offering a personalized music experience, allowing users to register, log in, explore songs, artists and playlists, as well as manage their profile (including profile picture from the camera). The project integrates Firebase (Firestore), Supabase Storage and the Deezer API. It is oriented as an educational project.",
-        "eventvs": "Mobile application that centralizes all cultural and leisure information of Mérida in a single digital space. It allows users to discover events, places of interest, restaurants and more, with an intuitive and easy-to-use interface. The project is under development, with the intention of offering a complete and attractive experience for residents and visitors of Mérida. It is oriented as a TFG project."
-      },
-      "shots": {
-        "login": "Login screen",
-        "register": "Register screen",
-        "home": "Home screen",
-        "profile": "Profile screen",
-        "splash": "Splash screen",
-        "songs": "Songs screen",
-        "player": "Player screen",
-        "map": "Map screen",
-        "calendar": "Calendar screen",
-        "events": "Saved events screen",
-        "account": "Account screen",
-        "details": "Event details screen"
-      }
+    "shots": {
+      "login": "Login screen",
+      "register": "Register screen",
+      "home": "Home screen",
+      "profile": "Profile screen",
+      "splash": "Splash screen",
+      "songs": "Songs screen",
+      "player": "Player screen",
+      "map": "Map screen",
+      "calendar": "Calendar screen",
+      "events": "Saved events screen",
+      "account": "Account screen",
+      "details": "Event details screen"
     }
   }
 }

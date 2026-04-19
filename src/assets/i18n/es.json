@@ -19,116 +19,114 @@
       "required": "Este campo es obligatorio",
       "minName": "Introduce al menos 2 caracteres"
     },
-    "projects" : "Proyectos",
+    "projects": "Proyectos",
     "description": "Descripción",
-    "images": "Imágenes"
+    "images": "Imágenes",
+    "projectStatus": {
+      "online": "En línea",
+      "wip": "En desarrollo"
+    }
   },
-  "pages": {
-    "login": {
-      "leftHint": "Para comenzar, introduce tu nombre",
-      "subtitle": "Escribe tu nombre para entrar al escritorio",
-      "form": {
-        "nameLabel": "Invitado",
-        "namePlaceholder": "Tu nombre",
-        "submit": "Entrar"
-      },
-      "welcomeMessage": "Bienvenido, {{name}}",
-      "footerLeft": "Apagar equipo",
-      "footerRight": "Despues de iniciar sesion podras acceder al escritorio"
+  "login": {
+    "leftHint": "Para comenzar, introduce tu nombre",
+    "subtitle": "Escribe tu nombre para entrar al escritorio",
+    "form": {
+      "nameLabel": "Invitado",
+      "namePlaceholder": "Tu nombre",
+      "submit": "Entrar"
     },
-    "desktop": {
-      "app1": "Mi PC",
-      "app2": "Internet Explorer",
-      "app3": "Visor de fotos y fax"
+    "welcomeMessage": "Bienvenido, {{name}}",
+    "footerLeft": "Apagar equipo",
+    "footerRight": "Despues de iniciar sesión podrás acceder al escritorio"
+  },
+  "desktop": {
+    "app1": "Mi PC",
+    "app2": "Internet Explorer",
+    "app3": "Visor de fotos y fax"
+  },
+  "myPc": {
+    "sidebar": {
+      "title": "Tareas del sistema",
+      "systemInfo": "Ver información del sistema",
+      "skills": "Ver habilidades principales",
+      "contact": "Opciones de contacto"
     },
-    "myPc": {
-      "sidebar": {
-        "title": "Tareas del sistema",
-        "systemInfo": "Ver informacion del sistema",
-        "skills": "Ver habilidades principales",
-        "contact": "Opciones de contacto"
+    "links": {
+      "title": "Enlaces rápidos",
+      "github": "Ver GitHub",
+      "linkedin": "Ver LinkedIn",
+      "cv": "Descargar CV"
+    },
+    "profile": {
+      "title": "Información profesional",
+      "roleValue": "Desarrollador Multiplataforma",
+      "bio": "Estudiante de Desarrollo de Aplicaciones Multiplataforma (DAM) con un perfil proactivo y trabajado; creativo y orientado al trabajo en equipo, con sólidas capacidades de planificación y alta flexibilidad y adaptabilidad para asumir nuevos retos y entornos cambiantes.",
+      "detailsTitle": "Datos básicos",
+      "locationLabel": "Ubicación",
+      "locationValue": "Madrid, España",
+      "emailLabel": "Email",
+      "focusLabel": "Especialización",
+      "birthLabel": "Fecha de nacimiento",
+      "birthValue": "03/07/2000",
+      "phoneLabel": "Telefono"
+    },
+    "skills": {
+      "title": "Stack principal"
+    }
+  },
+  "internetExplorer": {
+    "toolbar": {
+      "back": "Atrás",
+      "forward": "Adelante",
+      "refresh": "Actualizar",
+      "home": "Inicio",
+      "address": "Dirección",
+      "go": "Ir"
+    },
+    "actions": {
+      "openSite": "Abrir sitio",
+      "viewCode": "Ver código"
+    },
+    "status": {
+      "ready": "Listo",
+      "opening": "Abriendo proyecto...",
+      "hoverOpen": "Abrir despliegue",
+      "hoverRepo": "Abrir repositorio",
+      "projectSelected": "Proyecto seleccionado"
+    },
+    "projects": {
+      "project1": {
+        "title": "The Witcher Web",
+        "summary": "Videojuego sencillo para navegador inspirado en el universo The Witcher: pequeno bucle de juego, gráficos tipo sprite y gestión de estado básica."
       },
-      "links": {
-        "title": "Enlaces rapidos",
-        "github": "Ver GitHub",
-        "linkedin": "Ver LinkedIn",
-        "cv": "Descargar CV"
+      "project2": {
+        "title": "Primer Proyecto Angular",
+        "summary": "SPA tutorial compacta para aprender los fundamentos de Angular: componentes, enrutamiento, formularios e integración HTTP básica."
       },
-      "profile": {
-        "title": "Informacion profesional",
-        "roleValue": "Desarrollador Multiplataforma",
-        "bio": "Estudiante de Desarrollo de Aplicaciones Multiplataforma (DAM) con un perfil proactivo y trabajado; creativo y orientado al trabajo en equipo, con sólidas capacidades de planificación y alta flexibilidad y adaptabilidad para asumir nuevos retos y entornos cambiantes.",
-        "detailsTitle": "Datos basicos",
-        "locationLabel": "Ubicacion",
-        "locationValue": "Madrid, España",
-        "emailLabel": "Email",
-        "focusLabel": "Especializacion",
-        "birthLabel": "Fecha de nacimiento",
-        "birthValue": "03/07/2000",
-        "phoneLabel": "Teléfono"
-      },
-      "skills": {
-        "title": "Stack principal"
+      "project3": {
+        "title": "Portfolio",
+        "summary": "Portfolio personal estilo Windows XP que muestra proyectos, habilidades y curriculum, con soporte multilenguaje y detalles visuales ligeros."
       }
+    }
+  },
+  "photoViewer": {
+    "projects": {
+      "spotify": "Aplicación Android inspirada en Spotify con registro, login, canciones, playlists y perfil. Integra Firebase, Supabase Storage y API de Deezer.",
+      "eventvs": "Aplicación móvil para descubrir ocio y cultura de Merida con eventos, mapa, calendario y secciones de interés. Proyecto en desarrollo orientado a TFG."
     },
-    "internetExplorer": {
-      "toolbar": {
-        "back": "Atrás",
-        "forward": "Adelante",
-        "refresh": "Actualizar",
-        "home": "Inicio",
-        "address": "Dirección",
-        "go": "Ir"
-      },
-      "actions": {
-        "openSite": "Abrir sitio",
-        "viewCode": "Ver código"
-      },
-      "labels": {
-        "online": "En línea",
-        "wip": "En desarrollo"
-      },
-      "status": {
-        "ready": "Listo",
-        "opening": "Abriendo proyecto...",
-        "hoverOpen": "Abrir despliegue",
-        "hoverRepo": "Abrir repositorio",
-        "projectSelected": "Proyecto seleccionado"
-      },
-      "projects": {
-        "project1": {
-          "title": "The Witcher Web",
-          "summary": "Videojuego sencillo para navegador inspirado en el universo The Witcher: pequeño bucle de juego, gráficos tipo sprite y gestión de estado básica."
-        },
-        "project2": {
-          "title": "Primer Proyecto Angular",
-          "summary": "SPA tutorial compacta para aprender los fundamentos de Angular: componentes, enrutamiento, formularios e integración HTTP básica."
-        },
-        "project3": {
-          "title": "Portfolio",
-          "summary": "Portfolio personal estilo Windows XP que muestra proyectos, habilidades y currículum, con soporte multilenguaje y detalles visuales ligeros."
-        }
-      }
-    },
-    "photoViewer": {
-      "projects": {
-        "spotify": "Este proyecto es una aplicación Android inspirada en Spotify, que ofrece una experiencia musical personalizada, permitiendo a los usuarios registrarse, iniciar sesión, explorar canciones, artistas y playlists, así como gestionar su perfil (incluyendo la foto de perfil desde la cámara). El proyecto integra Firebase (Firestore), Supabase Storage y la API de Deezer. Está orientado como proyecto educativo.",
-        "eventvs": "Aplicación móvil que centraliza toda la información cultural y de ocio de Mérida en un solo espacio digital. Permite a los usuarios descubrir eventos, lugares de interés, restaurantes y más, con una interfaz intuitiva y fácil de usar. El proyecto está en desarrollo, con la intención de ofrecer una experiencia completa y atractiva para residentes y visitantes de Mérida. Está orientado como proyecto TFG."
-      },
-      "shots": {
-        "login": "Pantalla de login",
-        "register": "Pantalla de registro",
-        "home": "Pantalla principal",
-        "profile": "Pantalla de perfil",
-        "splash": "Pantalla de bienvenida",
-        "songs": "Pantalla de canciones",
-        "player": "Pantalla de reproductor",
-        "map": "Pantalla de mapa",
-        "calendar": "Pantalla de calendario",
-        "events": "Pantalla de eventos guardados",
-        "account": "Pantalla de cuenta",
-        "details": "Pantalla de detalles de eventos"
-      }
+    "shots": {
+      "login": "Pantalla de login",
+      "register": "Pantalla de registro",
+      "home": "Pantalla principal",
+      "profile": "Pantalla de perfil",
+      "splash": "Pantalla de bienvenida",
+      "songs": "Pantalla de canciones",
+      "player": "Pantalla de reproductor",
+      "map": "Pantalla de mapa",
+      "calendar": "Pantalla de calendario",
+      "events": "Pantalla de eventos guardados",
+      "account": "Pantalla de cuenta",
+      "details": "Pantalla de detalles de eventos"
     }
   }
 }

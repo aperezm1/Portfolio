@@ -27,7 +27,7 @@
               <span class="pv-project-item__name">{{ project.name }}</span>
               <span class="pv-project-item__meta">{{ project.platform }} · {{ project.shots.length }} {{ 'common.images' | translate }}</span>
               <span class="pv-project-item__status" [class.pv-project-item__status--wip]="project.status === 'wip'">
-                {{ project.status === 'online' ? 'Online' : 'WIP' }}
+                {{ project.status | projectStatusLabel | translate }}
               </span>
             </button>
           }

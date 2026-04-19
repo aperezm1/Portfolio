@@ -6,7 +6,7 @@
     <div class="login-shell__left">
       <img class="xp-mark" src="assets/images/system/logo_xp.png" [attr.alt]="'common.logoAlt' | translate" />
       <p class="brand-line">{{ "app.name" | translate }}</p>
-      <p class="left-hint">{{ "pages.login.leftHint" | translate }}</p>
+      <p class="left-hint">{{ "login.leftHint" | translate }}</p>
     </div>
 
     <div class="login-divider" aria-hidden="true"></div>
@@ -19,17 +19,17 @@
 
           <div class="xp-user-panel">
             <p class="xp-username">
-              {{ "pages.login.form.nameLabel" | translate }}
+              {{ "login.form.nameLabel" | translate }}
             </p>
-            <p class="xp-hint">{{ "pages.login.subtitle" | translate }}</p>
+            <p class="xp-hint">{{ "login.subtitle" | translate }}</p>
 
             <div class="xp-input-row">
-              <input class="xp-input" type="text" [placeholder]="'pages.login.form.namePlaceholder' | translate"
+              <input class="xp-input" type="text" [placeholder]="'login.form.namePlaceholder' | translate"
                 [formControl]="nameControl" (keyup.enter)="submitName()" />
 
               <button class="xp-enter-btn" type="button" (click)="submitName()"
                 [disabled]="nameControl.invalid || state === 'loading'"
-                [attr.aria-label]="'pages.login.form.submit' | translate">
+                [attr.aria-label]="'login.form.submit' | translate">
                 <span class="xp-enter-btn__arrow"></span>
               </button>
 
@@ -59,14 +59,14 @@
       @if (state === "welcome") {
       <div class="welcome-shell">
         <img class="xp-avatar" src="assets/images/system/avatar_xp.jpg" [attr.alt]="'common.avatarAlt' | translate" />
-        <p>{{ "pages.login.welcomeMessage" | translate: { name: displayName } | titlecase}}</p>
+        <p>{{ "login.welcomeMessage" | translate: { name: displayName } | titlecase}}</p>
       </div>
       }
     </mat-card>
   </div>
 
   <footer class="login-footer">
-    <span>{{ "pages.login.footerLeft" | translate }}</span>
-    <span>{{ "pages.login.footerRight" | translate }}</span>
+    <span>{{ "login.footerLeft" | translate }}</span>
+    <span>{{ "login.footerRight" | translate }}</span>
   </footer>
 </section>
