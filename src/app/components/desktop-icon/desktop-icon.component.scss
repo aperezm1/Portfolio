@@ -8,25 +8,20 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.5rem;
+  gap: 8px;               
   cursor: pointer;
   color: #ffffff;
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.6);
   padding: 0;
   border-radius: 0;
-}
-
-.desktop-icon:focus,
-.desktop-icon:active {
-  outline: none;
-  box-shadow: none;
-  background: transparent;
+  width: 120px;          
+  box-sizing: border-box;
 }
 
 .desktop-icon__img {
   display: block;
-  width: 64px;
-  height: 64px;
+  width: 72px;            
+  height: 72px;
   object-fit: contain;
   background: transparent;
   border: 0;
@@ -34,15 +29,15 @@
   box-shadow: none;
 }
 
-.desktop-icon.has-icon .desktop-icon__img {
-  display: block;
-}
-
 .desktop-icon__label {
   font-size: 0.95rem;
-  max-width: 84px;
+  max-width: 100%;
   text-align: center;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  white-space: normal;          
+  overflow-wrap: anywhere;     
+  word-break: break-word;
+  display: block;
+  line-height: 1.1;
+  margin: 0;
+  padding: 0 6px;
 }

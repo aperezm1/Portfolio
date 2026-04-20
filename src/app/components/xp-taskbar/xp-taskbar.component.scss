@@ -162,6 +162,16 @@
 ::ng-deep .xp-lang-menu-panel .mat-mdc-menu-item {
   min-height: 34px;
   font-size: 13px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.xp-flag {
+  width: 18px;
+  height: 12px;
+  object-fit: cover;
+  border-radius: 2px;
 }
 
 @media (max-width: 768px) {

@@ -32,7 +32,7 @@ export class DesktopComponent implements OnInit {
   private readonly document = inject(DOCUMENT);
 
   private readonly pendingOpenAnimations = new Set<string>();
-  private desktopApps: OpenWindowConfig[] = [];
+  desktopApps: OpenWindowConfig[] = [];
 
   readonly windows = this.windowManager.windows;
 

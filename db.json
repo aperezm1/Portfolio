@@ -4,19 +4,19 @@
       "id": "app1",
       "titleKey": "desktop.app1",
       "appType": "my-pc",
-      "iconSrc": "/assets/images/apps/my_pc.png"
+      "iconSrc": "/assets/images/system/my_pc.png"
     },
     {
       "id": "app2",
       "titleKey": "desktop.app2",
       "appType": "internet-explorer",
-      "iconSrc": "/assets/images/apps/explorer.png"
+      "iconSrc": "/assets/images/system/explorer.png"
     },
     {
       "id": "app3",
       "titleKey": "desktop.app3",
       "appType": "photo-viewer",
-      "iconSrc": "/assets/images/apps/photo_viewer.png"
+      "iconSrc": "/assets/images/system/photo_viewer.png"
     }
   ],
   "explorerProjects": [

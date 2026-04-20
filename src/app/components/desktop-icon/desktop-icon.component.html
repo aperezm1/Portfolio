@@ -1,10 +1,4 @@
-<button
-  class="desktop-icon"
-  type="button"
-  (click)="onActivate()"
-  [attr.aria-label]="label"
-  [class.has-icon]="!!iconSrc"
->
+<button class="desktop-icon" type="button" (click)="onActivate()" [attr.aria-label]="label" [class.has-icon]="!!iconSrc">
   <img class="desktop-icon__img" [src]="iconSrc" [alt]="label" />
   <span class="desktop-icon__label">{{ label }}</span>
 </button>

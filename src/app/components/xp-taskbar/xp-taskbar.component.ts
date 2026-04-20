@@ -15,7 +15,9 @@ import { LanguageService } from '../../core/services/language.service';
 })
 export class XpTaskbarComponent implements OnDestroy {
   private readonly languageService = inject(LanguageService);
-  private timerId: ReturnType<typeof setInterval> | null = null;
+
+  private timeoutId: ReturnType<typeof setTimeout> | null = null;
+  private intervalId: ReturnType<typeof setInterval> | null = null;
 
   @Input() windows: DesktopWindow[] = [];
   @Output() start = new EventEmitter<void>();
@@ -25,19 +27,36 @@ export class XpTaskbarComponent implements OnDestroy {
   currentLang = 'ES';
 
   constructor() {
-    const lang = this.languageService.getCurrentLang() || 'es';
-    this.currentLang = this.toTaskbarLang(lang);
+    const lang = this.languageService.getCurrentLang();
+    this.currentLang = lang.toUpperCase();
     this.updateTime();
 
-    this.timerId = setInterval(() => {
+    const now = new Date();
+    const msToNextMinute = (60 - now.getSeconds()) * 1000 - now.getMilliseconds();
+
+    this.timeoutId = setTimeout(() => {
       this.updateTime();
-    }, 1000);
+      this.intervalId = setInterval(() => this.updateTime(), 60_000);
+      this.timeoutId = null;
+    }, msToNextMinute);
+
+    if (msToNextMinute <= 0) {
+      if (this.timeoutId) {
+        clearTimeout(this.timeoutId);
+        this.timeoutId = null;
+      }
+      this.intervalId = setInterval(() => this.updateTime(), 60_000);
+    }
   }
 
   ngOnDestroy(): void {
-    if (this.timerId) {
-      clearInterval(this.timerId);
-      this.timerId = null;
+    if (this.timeoutId) {
+      clearTimeout(this.timeoutId);
+      this.timeoutId = null;
+    }
+    if (this.intervalId) {
+      clearInterval(this.intervalId);
+      this.intervalId = null;
     }
   }
 
@@ -51,15 +70,7 @@ export class XpTaskbarComponent implements OnDestroy {
 
   setLang(code: 'es' | 'en' | 'fr'): void {
     this.languageService.setLang(code);
-    this.currentLang = this.toTaskbarLang(code);
-  }
-
-  private toTaskbarLang(code: string): string {
-    const normalized = (code || 'es').toLowerCase();
-    if (normalized === 'es') return 'ES';
-    if (normalized === 'en') return 'EN';
-    if (normalized === 'fr') return 'FR';
-    return normalized.slice(0, 2).toUpperCase();
+    this.currentLang = code.toUpperCase();
   }
 
   private updateTime(): void {
