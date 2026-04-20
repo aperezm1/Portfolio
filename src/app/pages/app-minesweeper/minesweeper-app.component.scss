@@ -1,0 +1,109 @@
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 12px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.ms-frame {
+  --cols: 9;
+  --cell-size: clamp(28px, calc((100vw - 160px) / var(--cols)), 40px);
+  --gutter: 12px;
+  display: inline-block;
+  padding: var(--gutter);
+  box-sizing: border-box;
+  background: #c0c0c0;
+  border: 3px solid #d7d7d7;
+  border-right-color: #7b7b7b;
+  border-bottom-color: #7b7b7b;
+}
+
+.ms-top {
+  width: calc(var(--cols) * var(--cell-size));
+  margin: 0 auto 10px;
+  display: grid;
+  grid-template-columns: 64px 1fr 64px;
+  align-items: center;
+  gap: 8px;
+  padding: 8px;
+  background: #c0c0c0;
+  border: 2px solid #7b7b7b;
+  border-top-color: #ffffff;
+  border-left-color: #ffffff;
+  box-sizing: border-box;
+}
+
+.ms-counter {
+  width: 64px;
+  text-align: center;
+  background: #000;
+  color: #ff1f1f;
+  font-family: monospace;
+  font-size: 26px;
+  line-height: 1.1;
+  border: 2px inset #808080;
+  box-sizing: border-box;
+}
+
+.ms-face {
+  width: 40px;
+  height: 40px;
+  border: 2px solid #ffffff;
+  border-right-color: #7b7b7b;
+  border-bottom-color: #7b7b7b;
+  background: #c0c0c0;
+  cursor: pointer;
+  padding: 0;
+  font-size: 18px;
+  justify-self: center;
+  box-sizing: border-box;
+}
+
+.ms-board {
+  width: calc(var(--cols) * var(--cell-size));
+  margin: 0 auto;
+  border: 3px solid #7b7b7b;
+  border-top-color: #ffffff;
+  border-left-color: #ffffff;
+  background: #bdbdbd;
+  display: block;
+  box-sizing: border-box;
+}
+
+.ms-row {
+  display: flex;
+}
+
+.ms-cell {
+  width: var(--cell-size);
+  height: var(--cell-size);
+  border: 2px solid #ffffff;
+  border-right-color: #7b7b7b;
+  border-bottom-color: #7b7b7b;
+  background: #c0c0c0;
+  font-weight: 700;
+  font-size: calc(var(--cell-size) * 0.55);
+  line-height: 1;
+  padding: 0;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.ms-cell.revealed {
+  border: 1px solid #9b9b9b;
+  background: #e6e6e6;
+}
+
+.ms-cell.n1 { color: #0000ff; }
+.ms-cell.n2 { color: #008000; }
+.ms-cell.n3 { color: #ff0000; }
+.ms-cell.n4 { color: #000080; }
+.ms-cell.n5 { color: #800000; }
+.ms-cell.n6 { color: #008080; }
+.ms-cell.n7 { color: #000000; }
+.ms-cell.n8 { color: #7f7f7f; }

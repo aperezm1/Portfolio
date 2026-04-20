@@ -58,7 +58,8 @@
   "desktop": {
     "app1": "My PC",
     "app2": "Internet Explorer",
-    "app3": "Picture and Fax Viewer"
+    "app3": "Picture and Fax Viewer",
+    "app4": "Minesweeper"
   },
   "myPc": {
     "sidebar": {
@@ -126,7 +127,7 @@
     "projects": {
       "project1": {
         "title": "The Witcher Web",
-        "summary": "A simple browser videogame inspired by The Witcher universe - small gameplay loop, sprite-based graphics and basic state management."
+        "summary": "A simple browser videogame inspired by The Witcher universe - small gameplay loop, sprite-based graphics and basic state management. Made as an educational project."
       },
       "project2": {
         "title": "First Angular project",
@@ -140,7 +141,7 @@
   },
   "photoViewer": {
     "projects": {
-      "spotify": "Android app inspired by Spotify with register, login, songs, playlists and profile. It integrates Firebase, Supabase Storage and Deezer API.",
+      "spotify": "Android app inspired by Spotify with register, login, songs, playlists and profile. It integrates Firebase, Supabase Storage and Deezer API. Made as an educational project.",
       "eventvs": "Mobile app to discover culture and leisure in Merida with events, map, calendar and useful places. Work in progress project for final degree work."
     },
     "shots": {

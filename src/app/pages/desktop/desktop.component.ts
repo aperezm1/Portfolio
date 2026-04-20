@@ -13,6 +13,7 @@ import { OpenWindowConfig } from '../../core/models/open-window-config.model';
 import { PortfolioDataService } from '../../core/services/portfolio-data.service';
 import { UserSessionService } from '../../core/services/user-session.service';
 import { AppStateService } from '../../core/services/app-state.service';
+import { MinesweeperAppComponent } from '../app-minesweeper/minesweeper-app.component';
 
 @Component({
   selector: 'app-desktop',
@@ -24,6 +25,7 @@ import { AppStateService } from '../../core/services/app-state.service';
     MyPcAppComponent,
     InternetExplorerAppComponent,
     PhotoViewerAppComponent,
+    MinesweeperAppComponent,
     TranslatePipe,
   ],
   templateUrl: './desktop.component.html',

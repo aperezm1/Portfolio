@@ -58,7 +58,8 @@
   "desktop": {
     "app1": "Mi PC",
     "app2": "Internet Explorer",
-    "app3": "Visor de fotos y fax"
+    "app3": "Visor de fotos y fax",
+    "app4": "Buscaminas"
   },
   "myPc": {
     "sidebar": {
@@ -125,7 +126,7 @@
     "projects": {
       "project1": {
         "title": "The Witcher Web",
-        "summary": "Videojuego sencillo para navegador inspirado en el universo The Witcher: pequeño bucle de juego, gráficos tipo sprite y gestión de estado básica."
+        "summary": "Videojuego sencillo para navegador inspirado en el universo The Witcher: pequeño bucle de juego, gráficos tipo sprite y gestión de estado básica. Realizado como proyecto educativo."
       },
       "project2": {
         "title": "Primer Proyecto Angular",
@@ -139,7 +140,7 @@
   },
   "photoViewer": {
     "projects": {
-      "spotify": "Aplicación Android inspirada en Spotify con registro, login, canciones, playlists y perfil. Integra Firebase, Supabase Storage y API de Deezer.",
+      "spotify": "Aplicación Android inspirada en Spotify con registro, login, canciones, playlists y perfil. Integra Firebase, Supabase Storage y API de Deezer. Realizado como proyecto educativo.",
       "eventvs": "Aplicación móvil para descubrir ocio y cultura de Mérida con eventos, mapa, calendario y secciones de interés. Proyecto en desarrollo orientado a TFG."
     },
     "shots": {
