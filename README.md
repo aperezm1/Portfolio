@@ -25,6 +25,3 @@ El proyecto combina una interfaz retro (boot screen, login, escritorio, ventanas
 - Separación entre páginas, componentes reutilizables y capa core (servicios, modelos, guards, pipes, constantes).
 - Gestión de sesión de usuario en cliente para controlar el flujo boot/login/desktop.
 - Interfaz orientada a experiencia visual y narrativa del portfolio.
-
-## Nota de demo
-Actualmente los datos consumidos por la aplicación se sirven desde un `json-server` local, utilizado únicamente para fines de demostración y desarrollo.
