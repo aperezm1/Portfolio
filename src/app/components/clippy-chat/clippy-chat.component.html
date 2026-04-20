@@ -1,0 +1,35 @@
+<button class="clippy-launcher" type="button" (click)="toggle()">
+  <img class="clippy-avatar" src="/assets/images/system/clippy.png" alt="Clippy" />
+  Clippy
+</button>
+
+@if (open) {
+  <section class="clippy-panel">
+    <header class="clippy-header">
+      <div class="clippy-brand">
+        <img class="clippy-avatar" src="/assets/images/system/clippy.png" alt="Clippy" />
+        <span>Clippy XP</span>
+      </div>
+
+      <span class="clippy-status" [class.ok]="(connected$ | async)">●</span>
+    </header>
+
+    <div class="clippy-messages">
+      @for (m of (messages$ | async); track m.ts) {
+        <div class="msg-row" [class.user]="m.from === 'user'" [class.bot]="m.from === 'bot'">
+          <div class="msg-bubble">{{ m.text }}</div>
+        </div>
+      }
+      @if (typing$ | async) {
+        <div class="msg-row bot">
+          <div class="msg-bubble">Escribiendo...</div>
+        </div>
+      }
+    </div>
+
+    <footer class="clippy-input-row">
+      <input [(ngModel)]="input" (keyup.enter)="send()" placeholder="Pregunta algo..." />
+      <button type="button" (click)="send()">Enviar</button>
+    </footer>
+  </section>
+}

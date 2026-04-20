@@ -1,6 +1,6 @@
 <section class="desktop-screen" role="main" aria-label="Desktop">
   <div class="desktop-icons">
-    @for (app of desktopApps; track app.id) {
+    @for (app of desktopIcons; track app.id) {
       <app-desktop-icon
         label="{{ app.titleKey | translate }}"
         [iconSrc]="app.iconSrc"
@@ -43,6 +43,7 @@
               @case ('minesweeper') {
                 <app-minesweeper-app />
               }
+              
               @default {
                 <p class="desktop-window__placeholder">{{ win.content }}</p>
               }
@@ -63,3 +64,5 @@
     (turnOff)="onTurnOff()">
   </app-xp-taskbar>
 </section>
+
+<app-clippy-chat />

@@ -59,7 +59,8 @@
     "app1": "My PC",
     "app2": "Internet Explorer",
     "app3": "Picture and Fax Viewer",
-    "app4": "Minesweeper"
+    "app4": "Minesweeper",
+    "app5": "Clippy"
   },
   "myPc": {
     "sidebar": {
