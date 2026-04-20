@@ -12,6 +12,7 @@ import { PhotoViewerAppComponent } from '../app-photo-viewer/photo-viewer-app.co
 import { OpenWindowConfig } from '../../core/models/open-window-config.model';
 import { PortfolioDataService } from '../../core/services/portfolio-data.service';
 import { UserSessionService } from '../../core/services/user-session.service';
+import { AppStateService } from '../../core/services/app-state.service';
 
 @Component({
   selector: 'app-desktop',
@@ -30,7 +31,7 @@ import { UserSessionService } from '../../core/services/user-session.service';
 })
 export class DesktopComponent implements OnInit {
   private readonly windowManager = inject(WindowManagerService);
-  private readonly portfolioDataService = inject(PortfolioDataService);
+  private readonly appState = inject(AppStateService);
   private readonly userSessionService = inject(UserSessionService);
   private readonly router = inject(Router);
   private readonly document = inject(DOCUMENT);
@@ -43,7 +44,7 @@ export class DesktopComponent implements OnInit {
 
   ngOnInit(): void {
     this.userName = this.userSessionService.getUserName();
-    this.portfolioDataService.getDesktopApps().subscribe((apps) => {
+    this.appState.desktopApps$.subscribe((apps) => {
       this.desktopApps = apps;
     });
   }
@@ -152,7 +153,7 @@ export class DesktopComponent implements OnInit {
     if (document.fullscreenElement) {
       try {
         await document.exitFullscreen();
-      } catch {}
+      } catch { }
     }
 
     this.router.navigateByUrl('/');

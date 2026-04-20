@@ -51,7 +51,7 @@
       "namePlaceholder": "Tu nombre",
       "submit": "Entrar"
     },
-    "welcomeMessage": "Bienvenido, {{name}}",
+    "welcomeMessage": "Bienvenido/a, {{name}}",
     "footerLeft": "Apagar equipo",
     "footerRight": "Despues de iniciar sesión podrás acceder al escritorio"
   },

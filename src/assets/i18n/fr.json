@@ -51,7 +51,7 @@
       "namePlaceholder": "Votre nom",
       "submit": "Entrer"
     },
-    "welcomeMessage": "Bienvenue, {{name}}",
+    "welcomeMessage": "Bienvenu/e, {{name}}",
     "footerLeft": "Eteindre l ordinateur",
     "footerRight": "Apres connexion vous pourrez acceder au bureau"
   },
