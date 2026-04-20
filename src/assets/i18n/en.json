@@ -10,7 +10,8 @@
       "start": "Start",
       "help": "Help",
       "language": "Language",
-      "logout": "Log out"
+      "logout": "Log out",
+      "turnOffComputer": "Turn off computer"
     },
     "status": {
       "loading": "Loading...",
@@ -26,6 +27,20 @@
     "projectStatus": {
       "online": "Online",
       "wip": "WIP"
+    },
+    "languages": {
+      "es": "Spanish",
+      "en": "English",
+      "fr": "French"
+    },
+    "startMenu": {
+      "allPrograms": "All Programs",
+      "myComputer": "My Computer",
+      "myPictures": "My Pictures",
+      "internet": "Internet",
+      "helpSupport": "Help and Support",
+      "search": "Search",
+      "run": "Run..."
     }
   },
   "login": {

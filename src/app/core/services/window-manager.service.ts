@@ -78,6 +78,11 @@ export class WindowManagerService {
     this.activateTopOpenWindow();
   }
 
+  reset(): void {
+    this.zCounter = this.zBase;
+    this.windows.set([]);
+  }
+
   private activateTopOpenWindow(): void {
     const openWindows = this.windows().filter((w) => w.state === 'open');
     if (openWindows.length === 0) return;

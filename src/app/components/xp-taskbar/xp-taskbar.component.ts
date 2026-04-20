@@ -1,15 +1,16 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, TitleCasePipe } from '@angular/common';
 import { Component, EventEmitter, Input, OnDestroy, Output, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 import { TranslatePipe } from '@ngx-translate/core';
 import { DesktopWindow } from '../../core/models/desktop-window.model';
+import { OpenWindowConfig } from '../../core/models/open-window-config.model';
 import { LanguageService } from '../../core/services/language.service';
 
 @Component({
   selector: 'app-xp-taskbar',
   standalone: true,
-  imports: [CommonModule, MatButtonModule, MatMenuModule, TranslatePipe],
+  imports: [CommonModule, MatButtonModule, MatMenuModule, TranslatePipe, TitleCasePipe],
   templateUrl: './xp-taskbar.component.html',
   styleUrls: ['./xp-taskbar.component.scss'],
 })
@@ -20,9 +21,13 @@ export class XpTaskbarComponent implements OnDestroy {
   private intervalId: ReturnType<typeof setInterval> | null = null;
 
   @Input() windows: DesktopWindow[] = [];
-  @Output() start = new EventEmitter<void>();
+  @Input() startMenuApps: OpenWindowConfig[] = [];
+  @Input() userName = '';
+
   @Output() windowTabClick = new EventEmitter<string>();
+  @Output() startApp = new EventEmitter<string>();
   @Output() logout = new EventEmitter<void>();
+  @Output() turnOff = new EventEmitter<void>();
 
   time = '';
   currentLang = 'ES';
@@ -61,16 +66,26 @@ export class XpTaskbarComponent implements OnDestroy {
     }
   }
 
-  onStart(): void {
-    this.start.emit();
+  onWindowTabClick(id: string): void {
+    this.windowTabClick.emit(id);
+  }
+
+  openApp(id: string): void {
+    this.startApp.emit(id);
+  }
+
+  openAppByType(appType: string): void {
+    const app = this.startMenuApps.find((item) => item.appType === appType);
+    if (!app) return;
+    this.startApp.emit(app.id);
   }
 
   onLogout(): void {
     this.logout.emit();
   }
 
-  onWindowTabClick(id: string): void {
-    this.windowTabClick.emit(id);
+  onTurnOff(): void {
+    this.turnOff.emit();
   }
 
   setLang(code: 'es' | 'en' | 'fr'): void {

@@ -10,7 +10,8 @@
       "start": "Demarrer",
       "help": "Aide",
       "language": "Langue",
-      "logout": "Se deconnecter"
+      "logout": "Se deconnecter",
+      "turnOffComputer": "Eteindre l ordinateur"
     },
     "status": {
       "loading": "Chargement...",
@@ -26,6 +27,20 @@
     "projectStatus": {
       "online": "En ligne",
       "wip": "En cours"
+    },
+    "languages": {
+      "es": "Espagnol",
+      "en": "Anglais",
+      "fr": "Français"
+    },
+    "startMenu": {
+      "allPrograms": "Tous les programmes",
+      "myComputer": "Poste de travail",
+      "myPictures": "Mes images",
+      "internet": "Internet",
+      "helpSupport": "Aide et support",
+      "search": "Rechercher",
+      "run": "Exécuter..."
     }
   },
   "login": {

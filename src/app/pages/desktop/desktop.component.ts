@@ -37,10 +37,12 @@ export class DesktopComponent implements OnInit {
 
   private readonly pendingOpenAnimations = new Set<string>();
   desktopApps: OpenWindowConfig[] = [];
+  userName = '';
 
   readonly windows = this.windowManager.windows;
 
   ngOnInit(): void {
+    this.userName = this.userSessionService.getUserName();
     this.portfolioDataService.getDesktopApps().subscribe((apps) => {
       this.desktopApps = apps;
     });
@@ -139,11 +141,21 @@ export class DesktopComponent implements OnInit {
     this.windowManager.focusWindow(id);
   }
 
-  onStart(): void {}
-
   onLogout(): void {
     this.userSessionService.clearUserName();
     this.router.navigateByUrl('/login');
+  }
+
+  async onTurnOff(): Promise<void> {
+    this.windowManager.reset();
+
+    if (document.fullscreenElement) {
+      try {
+        await document.exitFullscreen();
+      } catch {}
+    }
+
+    this.router.navigateByUrl('/');
   }
 
   isPendingOpenAnimation(id: string): boolean {

@@ -10,7 +10,8 @@
       "start": "Inicio",
       "help": "Ayuda",
       "language": "Idioma",
-      "logout": "Cerrar sesión"
+      "logout": "Cerrar sesión",
+      "turnOffComputer": "Apagar equipo"
     },
     "status": {
       "loading": "Cargando...",
@@ -26,6 +27,20 @@
     "projectStatus": {
       "online": "En línea",
       "wip": "En desarrollo"
+    },
+    "languages": {
+      "es": "Español",
+      "en": "Inglés",
+      "fr": "Francés"
+    },
+    "startMenu": {
+      "allPrograms": "Todos los programas",
+      "myComputer": "Mi PC",
+      "myPictures": "Mis imágenes",
+      "internet": "Internet",
+      "helpSupport": "Ayuda y soporte",
+      "search": "Buscar",
+      "run": "Ejecutar..."
     }
   },
   "login": {

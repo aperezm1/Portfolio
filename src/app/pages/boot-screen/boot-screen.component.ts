@@ -5,6 +5,7 @@ import { MatRippleModule } from '@angular/material/core';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { gsap } from 'gsap';
 import { TranslatePipe } from '@ngx-translate/core';
+import { UserSessionService } from '../../core/services/user-session.service';
 
 @Component({
   selector: 'app-boot-screen-component',
@@ -16,6 +17,7 @@ import { TranslatePipe } from '@ngx-translate/core';
 export class BootScreenComponent implements OnInit {
   @ViewChild('screen', { static: true }) screenRef!: ElementRef<HTMLElement>;
   private router = inject(Router);
+  private userSessionService = inject(UserSessionService);
 
   booting = false;
 
@@ -48,12 +50,15 @@ export class BootScreenComponent implements OnInit {
       );
   }
 
-  enterLogin(): void {
+  enterLoginOrDesktop(): void {
     if (this.booting) return;
+    this.enterFullscreen();
     this.booting = true;
 
+    const nextRoute = this.getNextRoute();
+
     const tl = gsap.timeline({
-      onComplete: () => this.router.navigateByUrl('/login'),
+      onComplete: () => this.router.navigateByUrl(nextRoute),
     });
 
     tl.to('.boot-hint', {
@@ -80,5 +85,15 @@ export class BootScreenComponent implements OnInit {
         },
         '>-0.08'
       );
+  }
+
+  private enterFullscreen(): void {
+    if (!document.fullscreenEnabled) return;
+    document.documentElement.requestFullscreen().catch(() => {});
+  }
+
+  private getNextRoute(): string {
+    const userName = this.userSessionService.getUserName().trim();
+    return userName ? '/desktop' : '/login';
   }
 }

@@ -52,8 +52,11 @@
 
   <app-xp-taskbar
     [windows]="windows()"
+    [startMenuApps]="desktopApps"
+    [userName]="userName"
     (windowTabClick)="onTaskbarTabClick($event)"
-    (start)="onStart()"
-    (logout)="onLogout()">
+    (startApp)="openApp($event)"
+    (logout)="onLogout()"
+    (turnOff)="onTurnOff()">
   </app-xp-taskbar>
 </section>
