@@ -9,7 +9,8 @@
       "clickToStart": "cliquez pour demarrer",
       "start": "Demarrer",
       "help": "Aide",
-      "language": "Langue"
+      "language": "Langue",
+      "logout": "Se deconnecter"
     },
     "status": {
       "loading": "Chargement...",

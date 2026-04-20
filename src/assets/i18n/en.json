@@ -9,7 +9,8 @@
       "clickToStart": "click to start",
       "start": "Start",
       "help": "Help",
-      "language": "Language"
+      "language": "Language",
+      "logout": "Log out"
     },
     "status": {
       "loading": "Loading...",

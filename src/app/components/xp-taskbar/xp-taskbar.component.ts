@@ -22,6 +22,7 @@ export class XpTaskbarComponent implements OnDestroy {
   @Input() windows: DesktopWindow[] = [];
   @Output() start = new EventEmitter<void>();
   @Output() windowTabClick = new EventEmitter<string>();
+  @Output() logout = new EventEmitter<void>();
 
   time = '';
   currentLang = 'ES';
@@ -62,6 +63,10 @@ export class XpTaskbarComponent implements OnDestroy {
 
   onStart(): void {
     this.start.emit();
+  }
+
+  onLogout(): void {
+    this.logout.emit();
   }
 
   onWindowTabClick(id: string): void {

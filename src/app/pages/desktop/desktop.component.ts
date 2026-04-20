@@ -1,5 +1,6 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule, DOCUMENT } from '@angular/common';
+import { Router } from '@angular/router';
 import { TranslatePipe } from '@ngx-translate/core';
 import gsap from 'gsap';
 import { DesktopIconComponent } from '../../components/desktop-icon/desktop-icon.component';
@@ -10,6 +11,7 @@ import { InternetExplorerAppComponent } from '../app-internet-explorer/internet-
 import { PhotoViewerAppComponent } from '../app-photo-viewer/photo-viewer-app.component';
 import { OpenWindowConfig } from '../../core/models/open-window-config.model';
 import { PortfolioDataService } from '../../core/services/portfolio-data.service';
+import { UserSessionService } from '../../core/services/user-session.service';
 
 @Component({
   selector: 'app-desktop',
@@ -29,6 +31,8 @@ import { PortfolioDataService } from '../../core/services/portfolio-data.service
 export class DesktopComponent implements OnInit {
   private readonly windowManager = inject(WindowManagerService);
   private readonly portfolioDataService = inject(PortfolioDataService);
+  private readonly userSessionService = inject(UserSessionService);
+  private readonly router = inject(Router);
   private readonly document = inject(DOCUMENT);
 
   private readonly pendingOpenAnimations = new Set<string>();
@@ -136,6 +140,11 @@ export class DesktopComponent implements OnInit {
   }
 
   onStart(): void {}
+
+  onLogout(): void {
+    this.userSessionService.clearUserName();
+    this.router.navigateByUrl('/login');
+  }
 
   isPendingOpenAnimation(id: string): boolean {
     return this.pendingOpenAnimations.has(id);

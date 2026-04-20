@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { desktopGuard } from './core/guards/desktop.guard';
 
 export const routes: Routes = [
   {
@@ -13,8 +14,8 @@ export const routes: Routes = [
   },
   {
     path: 'desktop',
-    loadComponent: () =>
-      import('./pages/desktop/desktop.component').then((m) => m.DesktopComponent),
+    canActivate: [desktopGuard],
+    loadComponent: () => import('./pages/desktop/desktop.component').then(m => m.DesktopComponent),
   },
   {
     path: '**',

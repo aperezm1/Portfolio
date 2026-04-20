@@ -9,7 +9,8 @@
       "clickToStart": "haz clic para iniciar",
       "start": "Inicio",
       "help": "Ayuda",
-      "language": "Idioma"
+      "language": "Idioma",
+      "logout": "Cerrar sesión"
     },
     "status": {
       "loading": "Cargando...",

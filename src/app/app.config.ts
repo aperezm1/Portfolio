@@ -5,6 +5,7 @@ import { provideTranslateService } from "@ngx-translate/core";
 import { provideTranslateHttpLoader } from "@ngx-translate/http-loader";
 import { provideAnimations } from "@angular/platform-browser/animations";
 import { routes } from "./app.routes";
+import { httpErrorInterceptor } from "./core/interceptors/http-error.interceptor";
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -13,7 +14,7 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     provideHttpClient(
       withInterceptors([
-        
+        httpErrorInterceptor
       ])
     ),
     provideTranslateService({

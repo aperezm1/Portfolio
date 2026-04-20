@@ -1,43 +1,42 @@
 .desktop-icon {
-  appearance: none;
-  -webkit-appearance: none;
-  background: transparent;
-  border: 0;
-  outline: 0;
-  box-shadow: none;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;               
-  cursor: pointer;
-  color: #ffffff;
-  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.6);
+  gap: 8px;
+  width: 120px;
   padding: 0;
-  border-radius: 0;
-  width: 120px;          
+  border: 0;
+  background: transparent;
+  color: #fff;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.6);
   box-sizing: border-box;
 }
 
-.desktop-icon__img {
-  display: block;
-  width: 72px;            
+.desktop-icon__media {
+  width: 72px;
   height: 72px;
+  display: grid;
+  place-items: center;
+  flex: 0 0 72px;
+}
+
+.desktop-icon__img {
+  width: 72px;
+  height: 72px;
+  display: block;
   object-fit: contain;
-  background: transparent;
-  border: 0;
-  border-radius: 0;
-  box-shadow: none;
+  object-position: center;
 }
 
 .desktop-icon__label {
-  font-size: 0.95rem;
   max-width: 100%;
   text-align: center;
-  white-space: normal;          
-  overflow-wrap: anywhere;     
-  word-break: break-word;
-  display: block;
   line-height: 1.1;
-  margin: 0;
+  white-space: normal;
+  overflow-wrap: anywhere;
   padding: 0 6px;
+}
+
+.desktop-icon__img--photo {
+  transform: scale(0.82);
 }

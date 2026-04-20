@@ -167,6 +167,15 @@
   gap: 8px;
 }
 
+::ng-deep .xp-start-menu-panel .mat-mdc-menu-content {
+  padding: 4px 0;
+}
+
+::ng-deep .xp-start-menu-panel .mat-mdc-menu-item {
+  min-height: 34px;
+  font-size: 13px;
+}
+
 .xp-flag {
   width: 18px;
   height: 12px;

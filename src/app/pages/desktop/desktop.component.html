@@ -53,6 +53,7 @@
   <app-xp-taskbar
     [windows]="windows()"
     (windowTabClick)="onTaskbarTabClick($event)"
-    (start)="onStart()">
+    (start)="onStart()"
+    (logout)="onLogout()">
   </app-xp-taskbar>
 </section>
