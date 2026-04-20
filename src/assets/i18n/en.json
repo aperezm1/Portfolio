@@ -70,7 +70,7 @@
     "links": {
       "title": "Quick links",
       "github": "Open GitHub",
-      "linkedin": "Open LinkedIn",
+      "contact": "Contact",
       "cv": "Download resume"
     },
     "profile": {
@@ -88,7 +88,20 @@
     },
     "skills": {
       "title": "Main stack"
+    },
+    "languages": {
+      "title": "Languages",
+      "spanish": "Spanish - Native",
+      "english": "English - B2 (Upper-Intermediate)"
+    },
+    "career": {
+      "title": "Experience and Education",
+      "experienceTitle": "Experience",
+      "experience1": "Plexus Tech - Internship (2025 - 2026)",
+      "educationTitle": "Education",
+      "education1": "Higher Technician in Multiplatform Application Development (DAM)."
     }
+
   },
   "internetExplorer": {
     "toolbar": {

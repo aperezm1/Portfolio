@@ -70,7 +70,7 @@
     "links": {
       "title": "Enlaces rápidos",
       "github": "Ver GitHub",
-      "linkedin": "Ver LinkedIn",
+      "contact": "Contactar",
       "cv": "Descargar CV"
     },
     "profile": {
@@ -88,6 +88,18 @@
     },
     "skills": {
       "title": "Stack principal"
+    },
+    "languages": {
+      "title": "Idiomas",
+      "spanish": "Español - Nativo",
+      "english": "Inglés - B2"
+    },
+    "career": {
+      "title": "Experiencia y estudios",
+      "experienceTitle": "Experiencia",
+      "experience1": "Plexus Tech - Prácticas (2025 - 2026)",
+      "educationTitle": "Estudios",
+      "education1": "Técnico Superior en Desarrollo de Aplicaciones Multiplataforma (DAM)."
     }
   },
   "internetExplorer": {

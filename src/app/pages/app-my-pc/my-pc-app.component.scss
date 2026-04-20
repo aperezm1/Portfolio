@@ -7,19 +7,22 @@
   display: grid;
   grid-template-columns: 220px 1fr;
   height: 100%;
-  min-height: 100%;
+  min-height: 0;
   background: #ffffff;
   color: #193050;
+  overflow: hidden;
 }
 
 .my-pc__sidebar {
-  height: 150%;
+  height: 100%;
+  min-height: 0;
   border-right: 1px solid #b7c9e6;
   background: linear-gradient(180deg, #e9f2ff 0%, #d8e9ff 100%);
   padding: 0.8rem;
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
+  overflow-y: auto;
 }
 
 .xp-panel {
@@ -58,10 +61,12 @@
 }
 
 .my-pc__content {
+  min-height: 0;
   padding: 1rem;
   background:
     linear-gradient(180deg, rgba(115, 161, 236, 0.09) 0%, rgba(255, 255, 255, 0) 180px),
     #ffffff;
+  overflow-y: auto;
 }
 
 .my-pc__header {

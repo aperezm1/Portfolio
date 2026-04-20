@@ -70,7 +70,7 @@
     "links": {
       "title": "Liens rapides",
       "github": "Ouvrir GitHub",
-      "linkedin": "Ouvrir LinkedIn",
+      "contact": "Contacter",
       "cv": "Telecharger le CV"
     },
     "profile": {
@@ -88,6 +88,18 @@
     },
     "skills": {
       "title": "Stack principal"
+    },
+    "languages": {
+      "title": "Langues",
+      "spanish": "Espagnol - Natif",
+      "english": "Anglais - B2 (Intermediaire Superieur)"
+    },
+    "career": {
+      "title": "Experience et Education",
+      "experienceTitle": "Experience",
+      "experience1": "Plexus Tech - Stages (2025 - 2026)",
+      "educationTitle": "Education",
+      "education1": "Technicien Superieur en Developpement d'Applications Multiplataformes (DAM)."
     }
   },
   "internetExplorer": {

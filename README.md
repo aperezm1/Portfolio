@@ -1,29 +1,30 @@
-# Portfolio — Windows XP Style
+# Portfolio XP
 
-Descripción
------------
-Portfolio personal que recrea la estética de Windows XP usando Angular. Incluye pantalla de arranque, login inspirado en XP y un escritorio con iconos y taskbar.
+## Descripción
+Portfolio personal desarrollado con Angular que recrea la experiencia visual de Windows XP en formato web.  
+El proyecto combina una interfaz retro (boot screen, login, escritorio, ventanas y menú Start) con una presentación interactiva de proyectos y habilidades.
 
-Propósito
---------
-- Mostrar trabajos y enlaces en una experiencia retro y visualmente cuidada.
-- Servir como demostración técnica de UI, animaciones y i18n en Angular.
+## Finalidad
+- Mostrar proyectos personales en una experiencia más original y memorable que un portfolio tradicional.
+- Demostrar capacidades de desarrollo frontend con arquitectura modular, tipado y separación por responsabilidades.
+- Aplicar internacionalización y animaciones para mejorar la experiencia de usuario.
+- Mantener una estética coherente inspirada en Windows XP, adaptada a un contexto moderno.
 
-Tecnologías principales
-----------------------
-- Angular 19 (componentes standalone)
-- Angular Material (componentes UI)
+## Tecnologías utilizadas
+- Angular 19
+- TypeScript
+- SCSS
+- Angular Material
 - GSAP (animaciones)
-- ngx-translate (internacionalización — ES/EN/FR)
-- SCSS para estilos y theming
+- ngx-translate (internacionalización ES/EN/FR)
+- RxJS
+- JSON Server (fuente de datos mock durante desarrollo)
 
-Componentes clave
------------------
-- `DesktopIcon`: iconos reutilizables para el escritorio.
-- `XpTaskbar`: taskbar inferior con botón Start, selector de idioma y reloj.
-- `boot-screen`, `login`, `desktop`: páginas principales del flujo.
+## Enfoque del proyecto
+- Arquitectura basada en componentes standalone.
+- Separación entre páginas, componentes reutilizables y capa core (servicios, modelos, guards, pipes, constantes).
+- Gestión de sesión de usuario en cliente para controlar el flujo boot/login/desktop.
+- Interfaz orientada a experiencia visual y narrativa del portfolio.
 
-Recursos
---------
-- Imágenes y fondo en `src/assets/images/` (ej. `background_xp.jpg`, `logo_xp.png`).
-- Traducciones en `src/assets/i18n/`.
+## Nota de demo
+Actualmente los datos consumidos por la aplicación se sirven desde un `json-server` local, utilizado únicamente para fines de demostración y desarrollo.
