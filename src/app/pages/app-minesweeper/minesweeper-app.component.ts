@@ -1,12 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-
-type Cell = {
-  mine: boolean;
-  revealed: boolean;
-  flagged: boolean;
-  adjacent: number;
-};
+import { Cell } from '../../core/models/cell-minesweeper.model';
 
 @Component({
   selector: 'app-minesweeper-app',

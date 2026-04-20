@@ -14,6 +14,7 @@ import { PortfolioDataService } from '../../core/services/portfolio-data.service
 import { UserSessionService } from '../../core/services/user-session.service';
 import { AppStateService } from '../../core/services/app-state.service';
 import { MinesweeperAppComponent } from '../app-minesweeper/minesweeper-app.component';
+import { ClippyChatComponent } from '../../components/clippy-chat/clippy-chat.component';
 
 @Component({
   selector: 'app-desktop',
@@ -26,6 +27,7 @@ import { MinesweeperAppComponent } from '../app-minesweeper/minesweeper-app.comp
     InternetExplorerAppComponent,
     PhotoViewerAppComponent,
     MinesweeperAppComponent,
+    ClippyChatComponent,
     TranslatePipe,
   ],
   templateUrl: './desktop.component.html',
@@ -200,5 +202,9 @@ export class DesktopComponent implements OnInit {
 
   private getWindowElement(id: string): HTMLElement | null {
     return this.document.querySelector<HTMLElement>(`[data-window-id="${id}"]`);
+  }
+
+  get desktopIcons() {
+    return this.desktopApps.filter((app) => app.appType !== 'clippy-chat');
   }
 }

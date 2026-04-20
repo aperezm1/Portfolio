@@ -59,7 +59,8 @@
     "app1": "Mi PC",
     "app2": "Internet Explorer",
     "app3": "Visor de fotos y fax",
-    "app4": "Buscaminas"
+    "app4": "Buscaminas",
+    "app5": "Clippy"
   },
   "myPc": {
     "sidebar": {
