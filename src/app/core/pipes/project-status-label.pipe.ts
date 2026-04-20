@@ -1,5 +1,4 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { PROJECT_STATUS_LABEL_KEY } from '../constants/project-status.constants';
 import { ProjectStatus } from '../models/project-status.model';
 
 @Pipe({
@@ -7,7 +6,12 @@ import { ProjectStatus } from '../models/project-status.model';
   standalone: true,
 })
 export class ProjectStatusLabelPipe implements PipeTransform {
+  private readonly statusLabelKey: Record<ProjectStatus, string> = {
+    online: 'common.projectStatus.online',
+    wip: 'common.projectStatus.wip',
+  };
+
   transform(status: ProjectStatus): string {
-    return PROJECT_STATUS_LABEL_KEY[status];
+    return this.statusLabelKey[status];
   }
 }
