@@ -125,7 +125,7 @@
     "projects": {
       "project1": {
         "title": "The Witcher Web",
-        "summary": "Videojuego sencillo para navegador inspirado en el universo The Witcher: pequeno bucle de juego, gráficos tipo sprite y gestión de estado básica."
+        "summary": "Videojuego sencillo para navegador inspirado en el universo The Witcher: pequeño bucle de juego, gráficos tipo sprite y gestión de estado básica."
       },
       "project2": {
         "title": "Primer Proyecto Angular",
@@ -140,7 +140,7 @@
   "photoViewer": {
     "projects": {
       "spotify": "Aplicación Android inspirada en Spotify con registro, login, canciones, playlists y perfil. Integra Firebase, Supabase Storage y API de Deezer.",
-      "eventvs": "Aplicación móvil para descubrir ocio y cultura de Merida con eventos, mapa, calendario y secciones de interés. Proyecto en desarrollo orientado a TFG."
+      "eventvs": "Aplicación móvil para descubrir ocio y cultura de Mérida con eventos, mapa, calendario y secciones de interés. Proyecto en desarrollo orientado a TFG."
     },
     "shots": {
       "login": "Pantalla de login",

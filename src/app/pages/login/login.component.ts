@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, DOCUMENT } from '@angular/common';
 import { Component, AfterViewInit, inject } from '@angular/core';
 import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -10,6 +10,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { TranslatePipe } from '@ngx-translate/core';
 import { gsap } from 'gsap';
 import { UserSessionService } from '../../core/services/user-session.service';
+import { WindowManagerService } from '../../core/services/window-manager.service';
 
 type LoginState = 'form' | 'loading' | 'welcome';
 
@@ -32,6 +33,7 @@ type LoginState = 'form' | 'loading' | 'welcome';
 export class LoginComponent implements AfterViewInit {
   private router = inject(Router);
   private userSessionService = inject(UserSessionService);
+  private document = inject(DOCUMENT);
 
   state: LoginState = 'form';
   displayName = '';
@@ -89,6 +91,16 @@ export class LoginComponent implements AfterViewInit {
           );
       }, 0);
     });
+  }
+
+  onTurnOff(): void {
+    try {
+      if ((this.document as any).fullscreenElement) {
+        (this.document as any).exitFullscreen();
+      }
+    } catch {}
+
+    this.router.navigateByUrl('/');
   }
 
   private normalizeName(value: string): string {

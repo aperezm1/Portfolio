@@ -66,7 +66,17 @@
   </div>
 
   <footer class="login-footer">
-    <span>{{ "login.footerLeft" | translate }}</span>
-    <span>{{ "login.footerRight" | translate }}</span>
+    <div class="login-footer__left">
+      <button class="xp-power-btn xp-power-btn--off" type="button" (click)="onTurnOff()">
+        <span class="xp-power-btn__icon-box" aria-hidden="true">
+          <span class="xp-power-btn__icon-text">⏻</span>
+        </span>
+        <span class="xp-power-btn__label">{{ 'common.actions.turnOffComputer' | translate }}</span>
+      </button>
+    </div>
+
+    <div class="login-footer__right">
+      <span class="login-footer__right-text">{{ "login.footerRight" | translate }}</span>
+    </div>
   </footer>
 </section>
