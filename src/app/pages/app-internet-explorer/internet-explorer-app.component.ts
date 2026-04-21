@@ -3,7 +3,7 @@ import { Component, OnInit, inject } from '@angular/core';
 import { TranslatePipe } from '@ngx-translate/core';
 import { ExplorerProject } from '../../core/models/explorer-project.model';
 import { ProjectStatusLabelPipe } from '../../core/pipes/project-status-label.pipe';
-import { AppStateService } from '../../core/services/app-state.service';
+import { PortfolioDataService } from '../../core/services/portfolio-data.service';
 
 @Component({
   selector: 'app-internet-explorer-app',
@@ -13,14 +13,14 @@ import { AppStateService } from '../../core/services/app-state.service';
   styleUrls: ['./internet-explorer-app.component.scss'],
 })
 export class InternetExplorerAppComponent implements OnInit {
-  private readonly appState = inject(AppStateService);
+  private readonly data = inject(PortfolioDataService);
 
   projects: ExplorerProject[] = [];
   selectedProjectId = '';
   statusMessageKey = 'internetExplorer.status.ready';
 
   ngOnInit(): void {
-    this.appState.explorerProjects$.subscribe((projects) => {
+    this.data.explorerProjects$.subscribe((projects) => {
       this.projects = projects;
 
       if (projects.length > 0) {

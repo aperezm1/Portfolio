@@ -1,4 +1,4 @@
-import { WebSocketServer } from 'ws';
+const { WebSocketServer } = require('ws');
 
 const PORT = 3002;
 const wss = new WebSocketServer({ port: PORT });
@@ -69,36 +69,36 @@ function getBotReply(text, lang) {
   if (normalized.includes('skills') || normalized.includes('stack') || normalized.includes('tecnolog')) {
     return tr(
       lang,
-      'Stack principal: Angular, TypeScript, Node.js, WebSocket.',
-      'Main stack: Angular, TypeScript, Node.js, WebSocket.',
-      'Stack principal: Angular, TypeScript, Node.js, WebSocket.'
+      'Stack principal: Spring Boot, Java, SQL, Android, Git, Angular, Supabase, Flutter.',
+      'Main stack: Spring Boot, Java, SQL, Android, Git, Angular, Supabase, Flutter.',
+      'Stack principal: Spring Boot, Java, SQL, Android, Git, Angular, Supabase, Flutter.'
     );
   }
 
   if (normalized.includes('proyectos web') || normalized.includes('web projects') || normalized.includes('frontend')) {
     return tr(
       lang,
-      'Tengo varios proyectos web. Si quieres, te cuento los mas importantes.',
-      'I have several web projects. If you want, I can tell you the main ones.',
-      'J ai plusieurs projets web. Si tu veux, je peux te montrer les principaux.'
+      'Tengo varios proyectos web. Puedes acceder a ellos desde Internet Explorer.',
+      'I have several web projects. You can access them from Internet Explorer.',
+      'J ai plusieurs projets web. Tu peux les consulter depuis Internet Explorer.'
     );
   }
 
   if (normalized.includes('movil') || normalized.includes('móvil') || normalized.includes('mobile') || normalized.includes('android')) {
     return tr(
       lang,
-      'Tambien tengo proyectos moviles en Android.',
-      'I also have mobile projects on Android.',
-      'J ai aussi des projets mobiles Android.'
+      'Tambien tengo proyectos moviles en Android que puedes consultar desde el visor de fotos.',
+      'I also have mobile projects on Android that you can view from the photo viewer.',
+      'J ai aussi des projets mobiles Android que tu peux consulter depuis le visionneur de photos.'
     );
   }
 
   if (normalized.includes('contacto') || normalized.includes('contact') || normalized.includes('github') || normalized.includes('linkedin')) {
     return tr(
       lang,
-      'Contacto: GitHub github.com/aperezm1 y LinkedIn.',
-      'Contact: GitHub github.com/aperezm1 and LinkedIn.',
-      'Contact: GitHub github.com/aperezm1 et LinkedIn.'
+      'Contacto: GitHub: github.com/aperezm1 y Email: adrianperez936@gmail.com',
+      'Contact: GitHub: github.com/aperezm1 and Email: adrianperez936@gmail.com',
+      'Contact: GitHub: github.com/aperezm1 et Email: adrianperez936@gmail.com'
     );
   }
 

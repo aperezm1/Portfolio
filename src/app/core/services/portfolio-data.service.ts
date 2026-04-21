@@ -6,8 +6,8 @@ import { MobileProject } from '../models/mobile-project.model';
 import { OpenWindowConfig } from '../models/open-window-config.model';
 
 @Injectable({ providedIn: 'root' })
-export class AppStateService {
-  portfolio = inject(SupabaseDataService);
+export class PortfolioDataService {
+  supabase = inject(SupabaseDataService);
 
   private desktopAppsSubject = new BehaviorSubject<OpenWindowConfig[]>([]);
   desktopApps$ = this.desktopAppsSubject.asObservable();
@@ -27,22 +27,22 @@ export class AppStateService {
     if (this.loaded) return;
     this.loaded = true;
 
-    this.portfolio.getDesktopApps().subscribe({
+    this.supabase.getDesktopApps().subscribe({
       next: v => this.desktopAppsSubject.next(v),
       error: e => { console.error('desktopApps load error', e); this.desktopAppsSubject.next([]); }
     });
 
-    this.portfolio.getExplorerProjects().subscribe({
+    this.supabase.getExplorerProjects().subscribe({
       next: v => this.explorerProjectsSubject.next(v),
       error: e => { console.error('explorerProjects load error', e); this.explorerProjectsSubject.next([]); }
     });
 
-    this.portfolio.getMobileProjects().subscribe({
+    this.supabase.getMobileProjects().subscribe({
       next: v => this.mobileProjectsSubject.next(v),
       error: e => { console.error('mobileProjects load error', e); this.mobileProjectsSubject.next([]); }
     });
 
-    this.portfolio.getMyPcSkills().subscribe({
+    this.supabase.getMyPcSkills().subscribe({
       next: v => this.myPcSkillsSubject.next(v),
       error: e => { console.error('myPcSkills load error', e); this.myPcSkillsSubject.next([]); }
     });

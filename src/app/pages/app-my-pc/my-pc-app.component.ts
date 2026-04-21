@@ -1,6 +1,6 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { TranslatePipe } from '@ngx-translate/core';
-import { AppStateService } from '../../core/services/app-state.service';
+import { PortfolioDataService } from '../../core/services/portfolio-data.service';
 
 @Component({
   selector: 'app-my-pc-app',
@@ -10,7 +10,7 @@ import { AppStateService } from '../../core/services/app-state.service';
   styleUrls: ['./my-pc-app.component.scss'],
 })
 export class MyPcAppComponent implements OnInit {
-  private readonly appState = inject(AppStateService);
+  private readonly data = inject(PortfolioDataService);
 
   skills: { label: string; url: string }[] = [];
   githubUrl = '';
@@ -18,7 +18,7 @@ export class MyPcAppComponent implements OnInit {
   cvUrl = '';
 
   ngOnInit(): void {
-    this.appState.myPcSkills$.subscribe((skills) => {
+    this.data.myPcSkills$.subscribe((skills) => {
       this.skills = skills;
     });
   }

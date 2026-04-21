@@ -4,7 +4,7 @@ import { TranslatePipe } from '@ngx-translate/core';
 import { MobileProject } from '../../core/models/mobile-project.model';
 import { MobileShot } from '../../core/models/mobile-shot.model';
 import { ProjectStatusLabelPipe } from '../../core/pipes/project-status-label.pipe';
-import { AppStateService } from '../../core/services/app-state.service';
+import { PortfolioDataService } from '../../core/services/portfolio-data.service';
 
 @Component({
   selector: 'app-photo-viewer-app',
@@ -14,7 +14,7 @@ import { AppStateService } from '../../core/services/app-state.service';
   styleUrls: ['./photo-viewer-app.component.scss'],
 })
 export class PhotoViewerAppComponent implements OnInit {
-  private readonly appState = inject(AppStateService);
+  private readonly data = inject(PortfolioDataService);
 
   projects: MobileProject[] = [];
   selectedProjectId = '';
@@ -22,7 +22,7 @@ export class PhotoViewerAppComponent implements OnInit {
   zoom = 1;
 
   ngOnInit(): void {
-    this.appState.mobileProjects$.subscribe((projects) => {
+    this.data.mobileProjects$.subscribe((projects) => {
       this.projects = projects;
 
       if (projects.length > 0) {

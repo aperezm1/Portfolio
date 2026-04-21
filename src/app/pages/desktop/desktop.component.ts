@@ -11,7 +11,7 @@ import { InternetExplorerAppComponent } from '../app-internet-explorer/internet-
 import { PhotoViewerAppComponent } from '../app-photo-viewer/photo-viewer-app.component';
 import { OpenWindowConfig } from '../../core/models/open-window-config.model';
 import { UserSessionService } from '../../core/services/user-session.service';
-import { AppStateService } from '../../core/services/app-state.service';
+import { PortfolioDataService } from '../../core/services/portfolio-data.service';
 import { MinesweeperAppComponent } from '../app-minesweeper/minesweeper-app.component';
 import { ClippyChatComponent } from '../../components/clippy-chat/clippy-chat.component';
 
@@ -34,7 +34,7 @@ import { ClippyChatComponent } from '../../components/clippy-chat/clippy-chat.co
 })
 export class DesktopComponent implements OnInit {
   private readonly windowManager = inject(WindowManagerService);
-  private readonly appState = inject(AppStateService);
+  private readonly data = inject(PortfolioDataService);
   private readonly userSessionService = inject(UserSessionService);
   private readonly router = inject(Router);
   private readonly document = inject(DOCUMENT);
@@ -47,7 +47,7 @@ export class DesktopComponent implements OnInit {
 
   ngOnInit(): void {
     this.userName = this.userSessionService.getUserName();
-    this.appState.desktopApps$.subscribe((apps) => {
+    this.data.desktopApps$.subscribe((apps) => {
       this.desktopApps = apps;
     });
   }
