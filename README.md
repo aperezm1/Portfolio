@@ -18,7 +18,6 @@ El proyecto combina una interfaz retro (boot screen, login, escritorio, ventanas
 - GSAP (animaciones)
 - ngx-translate (internacionalización ES/EN/FR)
 - RxJS
-- JSON Server (fuente de datos mock durante desarrollo)
 
 ## Enfoque del proyecto
 - Arquitectura basada en componentes standalone.
