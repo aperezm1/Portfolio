@@ -21,7 +21,10 @@ export class ClippyChatService {
     if (this.socket) return;
 
     this.socket = io(environment.chatSocketUrl, {
-      transports: ['websocket', 'polling']
+      transports: ['websocket'],
+      reconnection: true,
+      reconnectionAttempts: 5,
+      timeout: 5000
     });
 
     this.socket.on('connect', () => this.connectedSubject.next(true));
