@@ -1,13 +1,13 @@
 import { inject, Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { PortfolioDataService } from './portfolio-data.service';
+import { SupabaseDataService } from './supabase-data.service';
 import { ExplorerProject } from '../models/explorer-project.model';
 import { MobileProject } from '../models/mobile-project.model';
 import { OpenWindowConfig } from '../models/open-window-config.model';
 
 @Injectable({ providedIn: 'root' })
 export class AppStateService {
-  portfolio = inject(PortfolioDataService);
+  portfolio = inject(SupabaseDataService);
 
   private desktopAppsSubject = new BehaviorSubject<OpenWindowConfig[]>([]);
   desktopApps$ = this.desktopAppsSubject.asObservable();

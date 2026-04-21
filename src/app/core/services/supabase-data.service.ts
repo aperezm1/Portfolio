@@ -10,7 +10,7 @@ import { environment } from '../../../environments/environment';
 @Injectable({
   providedIn: 'root',
 })
-export class PortfolioDataService {
+export class SupabaseDataService {
   private supabase: SupabaseClient;
 
   constructor() {

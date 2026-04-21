@@ -14,7 +14,7 @@
       <span class="clippy-status" [class.ok]="(connected$ | async)">●</span>
     </header>
 
-    <div class="clippy-messages">
+    <div class="clippy-messages" #messagesContainer>
       @for (m of (messages$ | async); track m.ts) {
         <div class="msg-row" [class.user]="m.from === 'user'" [class.bot]="m.from === 'bot'">
           <div class="msg-bubble">{{ m.text }}</div>

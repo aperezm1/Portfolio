@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnDestroy, OnInit, inject } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { Subscription } from 'rxjs';
 import { ClippyChatService } from '../../core/services/clippy-chat.service';
-import { LanguageService } from '../../core/services/language.service';
 
 @Component({
   selector: 'app-clippy-chat',
@@ -11,9 +11,11 @@ import { LanguageService } from '../../core/services/language.service';
   templateUrl: './clippy-chat.component.html',
   styleUrls: ['./clippy-chat.component.scss']
 })
-export class ClippyChatComponent implements OnInit, OnDestroy {
+export class ClippyChatComponent implements OnInit, AfterViewInit, OnDestroy {
   private chat = inject(ClippyChatService);
-  private language = inject(LanguageService);
+  private uiSub = new Subscription();
+
+  @ViewChild('messagesContainer') messagesContainer?: ElementRef<HTMLDivElement>;
 
   open = false;
   input = '';
@@ -26,17 +28,38 @@ export class ClippyChatComponent implements OnInit, OnDestroy {
     this.chat.connect();
   }
 
+  ngAfterViewInit(): void {
+    this.uiSub.add(
+      this.messages$.subscribe(() => this.scrollToBottomSoon())
+    );
+    this.uiSub.add(
+      this.typing$.subscribe(() => this.scrollToBottomSoon())
+    );
+  }
+
   ngOnDestroy(): void {
+    this.uiSub.unsubscribe();
     this.chat.disconnect();
   }
 
   toggle(): void {
     this.open = !this.open;
+    if (this.open) this.scrollToBottomSoon();
   }
 
   send(): void {
-    const lang = this.language.getCurrentLang() as 'es' | 'en' | 'fr';
-    this.chat.send(this.input, lang);
+    this.chat.send(this.input);
     this.input = '';
+    this.scrollToBottomSoon();
+  }
+
+  private scrollToBottomSoon(): void {
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        const el = this.messagesContainer?.nativeElement;
+        if (!el) return;
+        el.scrollTop = el.scrollHeight + 9999;
+      });
+    });
   }
 }
