@@ -10,7 +10,6 @@ import { MyPcAppComponent } from '../app-my-pc/my-pc-app.component';
 import { InternetExplorerAppComponent } from '../app-internet-explorer/internet-explorer-app.component';
 import { PhotoViewerAppComponent } from '../app-photo-viewer/photo-viewer-app.component';
 import { OpenWindowConfig } from '../../core/models/open-window-config.model';
-import { PortfolioDataService } from '../../core/services/portfolio-data.service';
 import { UserSessionService } from '../../core/services/user-session.service';
 import { AppStateService } from '../../core/services/app-state.service';
 import { MinesweeperAppComponent } from '../app-minesweeper/minesweeper-app.component';

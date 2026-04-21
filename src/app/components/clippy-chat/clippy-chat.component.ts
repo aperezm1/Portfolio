@@ -11,7 +11,7 @@ import { LanguageService } from '../../core/services/language.service';
   templateUrl: './clippy-chat.component.html',
   styleUrls: ['./clippy-chat.component.scss']
 })
-export class ClippyChatComponent implements OnInit, OnDestroy {
+export class ClippyChatComponent implements OnDestroy {
   private chat = inject(ClippyChatService);
   private language = inject(LanguageService);
 
@@ -22,9 +22,9 @@ export class ClippyChatComponent implements OnInit, OnDestroy {
   typing$ = this.chat.typing$;
   connected$ = this.chat.connected$;
 
-  ngOnInit(): void {
+  /*ngOnInit(): void {
     this.chat.connect();
-  }
+  }*/
 
   ngOnDestroy(): void {
     this.chat.disconnect();
